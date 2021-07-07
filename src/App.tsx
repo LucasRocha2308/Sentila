@@ -1,5 +1,11 @@
+import MoreSpent from "./components/MoreSpent";
+
 function App() {
-  return <></>;
+  return (
+    <>
+      <MoreSpent />
+    </>
+  );
 }
 
 export default App;

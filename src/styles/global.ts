@@ -28,7 +28,7 @@ export default createGlobalStyle`
         cursor: pointer;
         font-family: 'Kodchasan', sans-serif;
     }
-    a{
+    a,p{
         text-decoration: none;
         font-family: 'Kodchasan', sans-serif;
     }

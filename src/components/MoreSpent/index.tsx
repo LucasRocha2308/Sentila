@@ -1,19 +1,24 @@
 import { top5 } from "../../mock/top5Spending";
-import formatValue from "../../utils/formatValue";
-import { Container } from "./styles";
+
+import { Container, Image } from "./styles";
 
 const MoreSpent = () => {
   return (
     <Container>
+      <h2>
+        Quem mais <br />
+        gastou 😡
+      </h2>
       <div>
-        <h2>QUEM MAIS GASTOU 😡</h2>
-        {top5.map((item) => (
-          <>
-            <img src={item.img} alt="foto deputado" />
+        {top5.map((item, key) => (
+          <section key={key}>
+            <span>
+              <Image src={item.img} alt="foto deputado" />
+            </span>
             <p>{item.name}</p>
-            <div style={{ width: `${item.expense / 500}px` }}>pix</div>
-            <p>{formatValue(item.expense)} </p>
-          </>
+            <div style={{ height: `${item.expense * 2}px` }}></div>
+            <p>{item.expense} mil</p>
+          </section>
         ))}
       </div>
     </Container>
