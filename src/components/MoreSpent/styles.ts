@@ -36,8 +36,21 @@ export const Container = styled.div`
           #7dbff6 60%,
           rgba(77, 191, 246, 0) 100%
         );
+
         border-radius: 6.34884px;
         width: 40.56px;
+        animation: animate-height 4s;
+
+        @keyframes animate-height {
+          0% {
+            height: 10px;
+            opacity: 0;
+          }
+          100% {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
       }
     }
   }
