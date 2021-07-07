@@ -33,6 +33,7 @@ export const Container = styled.div`
         background: linear-gradient(
           180deg,
           #163a4b 0%,
+          #7dbff6 60%,
           rgba(77, 191, 246, 0) 100%
         );
         border-radius: 6.34884px;
