@@ -47,7 +47,7 @@ const Login = () => {
       <ContainerRegister>
         <a href="/">
           <span>
-            Home <a href="register"> {">"}Login </a>
+            Home <a href="login"> {">"}Login </a>
           </span>
         </a>
         <ContainerForm>
