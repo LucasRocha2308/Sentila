@@ -1,9 +1,11 @@
-import AppRoutes from "./routes";
+import Proposals from "./components/Proposals";
+import AppRoutes from "./routes/routes";
 
 function App() {
   return (
     <>
-        <AppRoutes />
+      <AppRoutes />
+      <Proposals />
     </>
   );
 }
