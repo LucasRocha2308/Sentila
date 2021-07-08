@@ -6,8 +6,11 @@ const MoreSpent = () => {
   return (
     <MoreSpentContainer>
       <h2>
-        Quem mais <br />
-        gastou 😡
+        Quem mais
+        <br />
+        gastou
+        <br />
+        😡
       </h2>
       <div>
         {top5.map((item, key) => (
