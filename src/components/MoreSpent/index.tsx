@@ -1,13 +1,16 @@
 import { top5 } from "../../mock/top5Spending";
 
-import { Container, Image } from "./styles";
+import { MoreSpentContainer, Image } from "./styles";
 
 const MoreSpent = () => {
   return (
-    <Container>
+    <MoreSpentContainer>
       <h2>
-        Quem mais <br />
-        gastou 😡
+        Quem mais
+        <br />
+        gastou
+        <br />
+        😡
       </h2>
       <div>
         {top5.map((item, key) => (
@@ -15,13 +18,13 @@ const MoreSpent = () => {
             <span>
               <Image src={item.img} alt="foto deputado" />
             </span>
-            <p>{item.name}</p>
+            <p>{item.name.slice(4)}</p>
             <div style={{ height: `${item.expense * 2}px` }}></div>
             <p>{item.expense} mil</p>
           </section>
         ))}
       </div>
-    </Container>
+    </MoreSpentContainer>
   );
 };
 export default MoreSpent;
