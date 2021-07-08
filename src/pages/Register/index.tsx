@@ -1,14 +1,9 @@
-// import "./style";
-
-import { Container, ContainerForm, ContainerRegister } from "./style";
-import { Button } from "@material-ui/core";
-import TextField from "@material-ui/core/TextField";
+import { ContainerFormAll, ContainerForm, ContainerRegister } from "./style";
 
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
-// import { FiUser, FiLock } from "react-icons/fi";
 import { yupResolver } from "@hookform/resolvers/yup";
-// import Input from "../../components/Input";
+import Input from "../../components/Input";
 import { useForm } from "react-hook-form";
 import api from "../../services/api";
 import { toast } from "react-toastify";
@@ -24,18 +19,16 @@ const Register = () => {
       .string()
       .oneOf([yup.ref("password")], "Senhas diferentes")
       .required("Obrigatório!"),
-    // email: yup.string().required("Campo obrigatório!").email("E-mail invalido"),
   });
   const {
-    // register,
+    register,
     handleSubmit,
-    // formState: { errors },
+    formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
   interface Auth {
     id?: number;
     username: string;
-    // email: string;
     password: string;
   }
 
@@ -54,69 +47,51 @@ const Register = () => {
   };
 
   return (
-    <Container>
+    <ContainerFormAll>
       <ContainerRegister>
+        <a href="home">
+          <span>
+            Home <a href="register"> `{">"}`Cadastro </a>
+          </span>
+        </a>
         <ContainerForm>
           <form onSubmit={handleSubmit(onSubmitFunction)}>
             <h2>CADASTRO</h2>
+            <Input
+              register={register}
+              name="username"
+              label="Usuário"
+              error={errors.username?.message}
+              placeholder="Username"
+            />
             <div>
-              <TextField
-                margin="normal"
-                variant="outlined"
-                label="Username"
-                name="username"
-                size="small"
-                color="primary"
-                // inputRef={register}
-                // error={!!errors.username}
-                // helperText={errors.username?.message}
-              ></TextField>
-            </div>
-
-            <div>
-              <TextField
-                margin="normal"
-                variant="outlined"
-                label="Password"
+              <Input
+                type="password"
                 name="password"
-                size="small"
-                color="primary"
-                // inputRef={register}
-                // error={!!errors.password}
-                // helperText={errors.password?.message}
-              ></TextField>
+                label="Senha"
+                register={register}
+                error={errors.password?.message}
+                placeholder="Password"
+              />
+              <Input
+                type="password"
+                name="passwordConfirm"
+                label="Confirme senha"
+                register={register}
+                error={errors.passwordConfirm?.message}
+                placeholder="Password Confirm"
+              />
             </div>
 
-            <div>
-              <TextField
-                margin="normal"
-                variant="outlined"
-                label="Password Confirm"
-                name=" passwordConfirm"
-                size="small"
-                color="primary"
-                // inputRef={register}
-                // error={!!errors.password}
-                // helperText={errors.password?.message}
-              ></TextField>
-            </div>
-
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              size="large"
-            >
-              Cadastrar
-            </Button>
+            <button>Cadastrar</button>
             <h4>
-              Já tem conta? <a href="#">Login</a>
+              Já possui conta? <a href="login">Login</a>
               {/* Já tem conta? <Link to="/login">Faça o login!</Link> */}
             </h4>
           </form>
         </ContainerForm>
       </ContainerRegister>
-    </Container>
+    </ContainerFormAll>
   );
 };
 export default Register;
