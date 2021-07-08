@@ -1,11 +1,9 @@
-import Register from "./pages/Register";
-// import Login from "./pages/Login";
+import AppRoutes from "./routes";
 
 function App() {
   return (
     <>
-      <Register></Register>
-      {/* <Login></Login> */}
+        <AppRoutes />
     </>
   );
 }
