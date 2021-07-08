@@ -45,9 +45,9 @@ const Login = () => {
   return (
     <ContainerFormAll>
       <ContainerRegister>
-        <a href="home">
+        <a href="/">
           <span>
-            Home <a href="register"> `{">"}`Login </a>
+            Home <a href="register"> {">"}Login </a>
           </span>
         </a>
         <ContainerForm>
