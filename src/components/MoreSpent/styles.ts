@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const MoreSpentContainer = styled.div`
   h2 {
     color: var(--dark-blue);
     line-height: 25px;
