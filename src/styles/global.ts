@@ -15,7 +15,7 @@ export default createGlobalStyle`
             --light-blue: #4DBFF6;
         }
     body{
-       
+       background: var(--white);
     }   
     body,input{
         font-family: 'DM Sans', sans-serif;
