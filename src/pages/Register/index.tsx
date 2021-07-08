@@ -1,6 +1,6 @@
 import { ContainerFormAll, ContainerForm, ContainerRegister } from "./style";
 
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Input from "../../components/Input";
@@ -91,8 +91,7 @@ const Register = () => {
 
               <button>Cadastrar</button>
               <h4>
-                Já possui conta? <a href="login">Login</a>
-                {/* Já tem conta? <Link to="/login">Faça o login!</Link> */}
+                Já possui conta? <Link to="/login">Login</Link>
               </h4>
             </form>
           </ContainerForm>
