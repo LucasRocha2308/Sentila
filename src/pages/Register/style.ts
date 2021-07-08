@@ -1,28 +1,22 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+
 export const ContainerFormAll = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-
+  min-height: 100vh;
   @media (min-width: 571px) {
     flex-direction: row;
   }
 `;
-export const NavLink = styled(Link)`
-  margin: 10px auto;
-  width: 120px;
-  font-size: 18px;
-`;
+
 export const ContainerRegister = styled.div`
   width: 100%;
-
-  a {
-    color: var(--light-blue);
-    align-self: left;
-  }
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ContainerForm = styled.div`
@@ -33,7 +27,6 @@ export const ContainerForm = styled.div`
   align-items: center;
   margin: 0 auto;
   padding: 10px;
-  background: var(--green-header);
 
   @media (min-width: 520px) {
     width: 75%;
