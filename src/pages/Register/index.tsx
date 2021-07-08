@@ -47,51 +47,57 @@ const Register = () => {
   };
 
   return (
-    <ContainerFormAll>
-      <ContainerRegister>
-        <a href="home">
-          <span>
-            Home <a href="register"> `{">"}`Cadastro </a>
-          </span>
+    <>
+      <p style={{ marginTop: 20, marginLeft: 20 }}>
+        <a href="home" style={{ color: "#444548" }}>
+          Home `{">"}`
         </a>
-        <ContainerForm>
-          <form onSubmit={handleSubmit(onSubmitFunction)}>
-            <h2>CADASTRO</h2>
-            <Input
-              register={register}
-              name="username"
-              label="Usuário"
-              error={errors.username?.message}
-              placeholder="Username"
-            />
-            <div>
-              <Input
-                type="password"
-                name="password"
-                label="Senha"
-                register={register}
-                error={errors.password?.message}
-                placeholder="Password"
-              />
-              <Input
-                type="password"
-                name="passwordConfirm"
-                label="Confirme senha"
-                register={register}
-                error={errors.passwordConfirm?.message}
-                placeholder="Password Confirm"
-              />
-            </div>
+        <a href="register" style={{ color: " #4DBFF6" }}>
+          Cadastro
+        </a>
+      </p>
 
-            <button>Cadastrar</button>
-            <h4>
-              Já possui conta? <a href="login">Login</a>
-              {/* Já tem conta? <Link to="/login">Faça o login!</Link> */}
-            </h4>
-          </form>
-        </ContainerForm>
-      </ContainerRegister>
-    </ContainerFormAll>
+      <ContainerFormAll>
+        <ContainerRegister>
+          <ContainerForm>
+            <form onSubmit={handleSubmit(onSubmitFunction)}>
+              <h2>CADASTRO</h2>
+              <Input
+                register={register}
+                name="username"
+                label="Usuário"
+                error={errors.username?.message}
+                placeholder="Username"
+              />
+              <div>
+                <Input
+                  type="password"
+                  name="password"
+                  label="Senha"
+                  register={register}
+                  error={errors.password?.message}
+                  placeholder="Password"
+                />
+                <Input
+                  type="password"
+                  name="passwordConfirm"
+                  label="Confirme senha"
+                  register={register}
+                  error={errors.passwordConfirm?.message}
+                  placeholder="Password Confirm"
+                />
+              </div>
+
+              <button>Cadastrar</button>
+              <h4>
+                Já possui conta? <a href="login">Login</a>
+                {/* Já tem conta? <Link to="/login">Faça o login!</Link> */}
+              </h4>
+            </form>
+          </ContainerForm>
+        </ContainerRegister>
+      </ContainerFormAll>
+    </>
   );
 };
 export default Register;
