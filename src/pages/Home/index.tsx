@@ -1,6 +1,7 @@
 import { BackgroundWrapper, Container } from "./styles";
 import MoreSpent from "../../components/MoreSpent";
 import MoreSaved from "../../components/WhoSavedTheMost";
+import Footer from "../../components/Footer";
 
 const Home = () => {
   return (
@@ -14,8 +15,9 @@ const Home = () => {
       </BackgroundWrapper>
       <div className="g1">
         <MoreSpent />
-        <MoreSaved />
       </div>
+      <MoreSaved />
+      <Footer />
     </Container>
   );
 };
