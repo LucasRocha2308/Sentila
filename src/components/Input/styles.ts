@@ -1,4 +1,5 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
+import { TextField } from "@material-ui/core";
 
 export const Container = styled.div`
   text-align: left;
@@ -6,42 +7,36 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
 
-  div {
+  /* div {
     span {
       color: var(--red);
     }
-  }
+  } */
 `;
 
-interface InputsProps {
-  isErrored: boolean;
-}
-export const InputContainer = styled.div<InputsProps>`
-  transition: 0.4s;
+// interface InputsProps {
+//   isErrored: boolean;
+// }
+export const InputContainer = styled.div`
+  /* transition: 0.4s; */
   display: flex;
   align-items: center;
   justify-content: center;
-  ${(props) =>
-    props.isErrored &&
-    css`
-      color: var(--red);
-      border-color: var(--red);
-      svg {
-        color: var(--red);
-      }
-    `}
+  /* position: relative; */
+`;
 
-  input {
-    all: unset;
-    padding: 15px 120px 15px 5px;
-    margin: 10px auto;
-    border: 2px solid #4dbff6;
-    box-sizing: border-box;
-    border-radius: 8px;
-    margin-bottom: 10px;
+export const StyleTextField = styled(TextField)`
+  label.Mui-focused {
+    color: var(--light-blue);
   }
 
-  input::placeholder {
-    color: var(--light-blue);
+  .MuiOutlinedInput-root {
+    margin: 10px;
+    padding: 2px 120px 2px 5px;
+
+    /* width: 300px; */
+    &.Mui-focused fieldset {
+      border-color: var(--light-blue);
+    }
   }
 `;
