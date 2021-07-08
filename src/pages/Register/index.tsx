@@ -49,7 +49,7 @@ const Register = () => {
   return (
     <>
       <p style={{ marginTop: 20, marginLeft: 20 }}>
-        <a href="home" style={{ color: "#444548" }}>
+        <a href="/" style={{ color: "#444548" }}>
           Home
         </a>
         <span> {">"} </span>
