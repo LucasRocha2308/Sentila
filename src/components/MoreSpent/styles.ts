@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const MoreSpentContainer = styled.div`
   h2 {
     color: var(--dark-blue);
     line-height: 25px;
@@ -11,8 +11,10 @@ export const Container = styled.div`
     align-items: flex-end;
     flex-direction: row-reverse;
     justify-content: center;
+    gap: 1.5rem;
 
     section {
+      /* min-width: 85px; */
       display: flex;
       flex-direction: column;
       justify-content: space-around;
@@ -22,6 +24,9 @@ export const Container = styled.div`
       p {
         font-size: 9px;
       }
+      p:nth-child(2) {
+        width: min-content;
+      }
       span {
         height: 40.56px;
         width: 40.56px;
@@ -29,6 +34,7 @@ export const Container = styled.div`
         z-index: 2;
         overflow: hidden;
       }
+
       div {
         background: linear-gradient(
           180deg,
