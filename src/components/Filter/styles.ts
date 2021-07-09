@@ -1,8 +1,11 @@
 import styled from "styled-components";
-
+import Autocomplete from "@material-ui/lab/Autocomplete";
 export const FilterContainer = styled.div`
-  display: flex;
-  justify-content: center;
   margin-top: 150px;
-  align-items: center;
+`;
+
+export const AutoCompleteStyle = styled(Autocomplete)`
+  .MuiAutocomplete-inputRoot {
+    width: 300px;
+  }
 `;

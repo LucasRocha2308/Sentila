@@ -4,7 +4,6 @@ import MoreSaved from "../../components/WhoSavedTheMost";
 import Footer from "../../components/Footer";
 import SectionHero from "../../components/SectionHero";
 import Proposals from "../../components/Proposals";
-import Filter from "../../components/Filter";
 
 const Home = () => {
   return (
@@ -23,7 +22,6 @@ const Home = () => {
       <MoreSaved />
       <Proposals />
       <Footer />
-      <Filter />
     </Container>
   );
 };
