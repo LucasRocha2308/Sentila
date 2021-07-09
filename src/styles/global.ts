@@ -24,11 +24,7 @@ export default createGlobalStyle`
     h1,h2,h3,h4,h5,h6{
         font-family: 'Rubik', sans-serif;
     }
-    button{
-        cursor: pointer;
-        font-family: 'Kodchasan', sans-serif;
-    }
-    a,p{
+   a,p{
         text-decoration: none;
         font-family: 'Kodchasan', sans-serif;
     }
