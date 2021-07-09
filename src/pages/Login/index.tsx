@@ -1,6 +1,6 @@
 import { ContainerFormAll, ContainerForm, ContainerRegister } from "./style";
 
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Input from "../../components/Input";
@@ -43,43 +43,49 @@ const Login = () => {
   };
 
   return (
-    <ContainerFormAll>
-      <ContainerRegister>
-        <a href="/">
-          <span>
-            Home <a href="login"> {">"}Login </a>
-          </span>
+    <>
+      <p style={{ marginTop: 20, marginLeft: 20 }}>
+        <a href="/" style={{ color: "#444548" }}>
+          Home
         </a>
-        <ContainerForm>
-          <form onSubmit={handleSubmit(onSubmitFunction)}>
-            <h2>LOGIN</h2>
-            <Input
-              register={register}
-              name="username"
-              label="Usuário"
-              // error={errors.username?.message}
-              placeholder="Username"
-            />
-            <div>
-              <Input
-                type="password"
-                name="password"
-                label="Senha"
-                register={register}
-                // error={errors.password?.message}
-                placeholder="Password"
-              />
-            </div>
+        <span> {">"} </span>
+        <a href="login" style={{ color: " #4DBFF6" }}>
+          Login
+        </a>
+      </p>
 
-            <button>Login</button>
-            <h4>
-              Ainda não possui cadastro? <a href="login">Cadastrar</a>
-              {/* Já tem conta? <Link to="/login">Faça o login!</Link> */}
-            </h4>
-          </form>
-        </ContainerForm>
-      </ContainerRegister>
-    </ContainerFormAll>
+      <ContainerFormAll>
+        <ContainerRegister>
+          <ContainerForm>
+            <form onSubmit={handleSubmit(onSubmitFunction)}>
+              <h2>LOGIN</h2>
+              <Input
+                register={register}
+                name="username"
+                label="Usuário"
+                // error={errors.username?.message}
+                placeholder="Username"
+              />
+              <div>
+                <Input
+                  type="password"
+                  name="password"
+                  label="Senha"
+                  register={register}
+                  // error={errors.password?.message}
+                  placeholder="Password"
+                />
+              </div>
+
+              <button>Cadastrar</button>
+              <h4>
+                Ainda não possui cadastro? <Link to="/register">Cadastrar</Link>
+              </h4>
+            </form>
+          </ContainerForm>
+        </ContainerRegister>
+      </ContainerFormAll>
+    </>
   );
 };
 export default Login;

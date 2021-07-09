@@ -1,7 +1,8 @@
 import { BackgroundWrapper, Container } from "./styles";
 import MoreSpent from "../../components/MoreSpent";
 import MoreSaved from "../../components/WhoSavedTheMost";
-import Proposals from "../../components/Proposals";
+import Footer from "../../components/Footer";
+import SectionHero from "../../components/SectionHero";
 
 const Home = () => {
   return (
@@ -13,11 +14,12 @@ const Home = () => {
         <div className="background3" />
         <div className="background4" />
       </BackgroundWrapper>
+      <SectionHero />
       <div className="g1">
         <MoreSpent />
       </div>
       <MoreSaved />
-      <Proposals />
+      <Footer />
     </Container>
   );
 };

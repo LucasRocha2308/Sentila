@@ -44,8 +44,42 @@ export const ContainerForm = styled.div`
     margin-top: 10px;
   }
 
+  @media (min-width: 320px) {
+    width: 75%;
+    button {
+      all: unset;
+      background: var(--light-blue);
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 24px;
+      padding: 16px 120px;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+  }
+
   @media (min-width: 520px) {
     width: 75%;
+    button {
+      all: unset;
+      background: var(--light-blue);
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 24px;
+      padding: 16px 150px;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
   }
   @media (min-width: 1100px) {
     width: 40%;
