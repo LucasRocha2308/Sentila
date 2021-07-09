@@ -30,7 +30,7 @@ const Proposals = () => {
         Propostas <br />
         📝
       </h2>
-      <Carousel
+      {/* <Carousel
         responsive={responsive}
         infinite={true}
         autoPlay={true}
@@ -48,7 +48,7 @@ const Proposals = () => {
             </a>
           </section>
         ))}
-      </Carousel>
+      </Carousel> */}
     </ProposalsContainer>
   );
 };
