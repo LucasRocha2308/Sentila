@@ -3,6 +3,7 @@ import MoreSpent from "../../components/MoreSpent";
 import MoreSaved from "../../components/WhoSavedTheMost";
 import Footer from "../../components/Footer";
 import SectionHero from "../../components/SectionHero";
+import Proposals from "../../components/Proposals";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
         <MoreSpent />
       </div>
       <MoreSaved />
+      <Proposals />
       <Footer />
     </Container>
   );

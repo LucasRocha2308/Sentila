@@ -1,7 +1,7 @@
-import { ProposalsContainer } from "./styles";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import { StyledCarousel, ProposalsContainer } from "./styles";
+
 import { useProposals } from "../../provider/proposals";
+import { ImPlay2 } from "react-icons/im";
 
 const Proposals = () => {
   const { proposals } = useProposals();
@@ -30,25 +30,34 @@ const Proposals = () => {
         Propostas <br />
         📝
       </h2>
-      {/* <Carousel
+      <StyledCarousel
         responsive={responsive}
         infinite={true}
+        ssr={true}
+        showDots={true}
         autoPlay={true}
-        customTransition="all .5"
+        itemClass="carousel-item-padding-40-px"
         autoPlaySpeed={10000}
+        removeArrowOnDeviceType={["tablet", "mobile"]}
       >
         {proposals.map((item, key) => (
           <section key={key}>
             <h4>Proposta {item.codTipo}</h4>
             <h5>{item.siglaTipo}</h5>
-            <p>{item.ementa}</p>
+            <p>
+              {item.ementa.length > 50
+                ? `${item.ementa.substring(0, 150)}...`
+                : item.ementa}
+            </p>
 
             <a href="/proposals">
-              <span>Saiba mais</span>
+              <span>
+                Saiba mais <ImPlay2 />
+              </span>
             </a>
           </section>
         ))}
-      </Carousel> */}
+      </StyledCarousel>
     </ProposalsContainer>
   );
 };

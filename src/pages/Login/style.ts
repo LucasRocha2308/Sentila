@@ -121,11 +121,6 @@ export const ContainerForm = styled.div`
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
-<<<<<<< HEAD
-    line-height: 24px;
-
-=======
->>>>>>> developer
     a {
       color: var(--light-blue);
     }
