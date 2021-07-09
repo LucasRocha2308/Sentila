@@ -31,7 +31,7 @@ export const StyleTextField = styled(TextField)`
   }
 
   .MuiOutlinedInput-root {
-    margin: 10px;
+    margin-bottom: 45px;
     padding: 2px 120px 2px 5px;
 
     /* width: 300px; */

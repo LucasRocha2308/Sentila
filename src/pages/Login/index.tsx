@@ -7,6 +7,7 @@ import Input from "../../components/Input";
 import { useForm } from "react-hook-form";
 import api from "../../services/api";
 import { toast } from "react-toastify";
+import Button from "../../components/Button";
 
 const Login = () => {
   const schema = yup.object().shape({
@@ -76,8 +77,7 @@ const Login = () => {
                   placeholder="Password"
                 />
               </div>
-
-              <button>Cadastrar</button>
+              <Button value="Cadastrar" />
               <h4>
                 Ainda não possui cadastro? <Link to="/register">Cadastrar</Link>
               </h4>

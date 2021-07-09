@@ -7,6 +7,7 @@ import Input from "../../components/Input";
 import { useForm } from "react-hook-form";
 import api from "../../services/api";
 import { toast } from "react-toastify";
+import Button from "../../components/Button";
 
 const Register = () => {
   const schema = yup.object().shape({
@@ -89,7 +90,7 @@ const Register = () => {
                 />
               </div>
 
-              <button>Cadastrar</button>
+              <Button value="Cadastrar" />
               <h4>
                 Já possui conta? <Link to="/login">Login</Link>
               </h4>

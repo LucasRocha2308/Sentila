@@ -5,11 +5,11 @@ import { FieldValues, UseFormRegister } from "react-hook-form";
 
 interface InputProps {
   // error: string;
-  label: string;
+  label?: string;
   register: UseFormRegister<FieldValues>;
   name: string;
   type?: string;
-  placeholder: string;
+  placeholder?: string;
 }
 
 function Input({ label, register, name, ...rest }: InputProps) {
@@ -17,8 +17,6 @@ function Input({ label, register, name, ...rest }: InputProps) {
     <Container>
       {/* <div>{!!error && <span> - {error}</span>}</div> */}
       <InputContainer>
-        {/* {label} */}
-        {/* <input {...register(name)} {...rest} /> */}
         <StyleTextField
           id="outlined-secondary"
           label={label}
