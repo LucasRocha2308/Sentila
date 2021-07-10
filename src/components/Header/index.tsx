@@ -8,6 +8,8 @@ import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Container from "@material-ui/core/Container";
 import Slide from "@material-ui/core/Slide";
 
+import MenuHeader from "../MenuHeader";
+
 function HideOnScroll(props: any) {
     const { children, window } = props;
     // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -41,6 +43,7 @@ export default function Header(props: any) {
                         <h1>
                             SENTINELA <CgMenuGridO />
                         </h1>
+                        <MenuHeader></MenuHeader>
                     </ToolbarStyled>
                 </AppBarStyled>
             </HideOnScroll>
