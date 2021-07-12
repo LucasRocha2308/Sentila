@@ -39,7 +39,7 @@ const Login = () => {
   }
 
   const history = useHistory();
-  const { isLogin, setIsLogin } = useIsLogin();
+  const { setIsLogin } = useIsLogin();
   const onSubmitFunction = ({ email, password }: Auth) => {
     const user = { email, password };
     apiAuth
