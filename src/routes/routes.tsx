@@ -17,7 +17,7 @@ function AppRoutes() {
         <Route exact path="/register" component={Register} />
         <Route exact path="/expenses" component={Expenses} />
         <Route exact path="/proposals" component={Proposals} />
-        <Route exact path="/about" component={Home} />
+        <Route exact path="/about" component={About} />
       </Switch>
     </>
   );
