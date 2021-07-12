@@ -20,14 +20,14 @@ const Proposals = () => {
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 1,
+      items: 1.8,
     },
   };
 
   return (
     <ProposalsContainer>
       <h2>
-        Propostas <br />
+        Últimas Propostas <br />
         📝
       </h2>
       <StyledCarousel
@@ -35,7 +35,7 @@ const Proposals = () => {
         infinite={true}
         ssr={true}
         showDots={true}
-        autoPlay={true}
+        autoPlay={false}
         itemClass="carousel-item-padding-40-px"
         autoPlaySpeed={10000}
         removeArrowOnDeviceType={["tablet", "mobile"]}
@@ -58,6 +58,7 @@ const Proposals = () => {
           </section>
         ))}
       </StyledCarousel>
+      <div className="carousel__spacing"></div>
     </ProposalsContainer>
   );
 };

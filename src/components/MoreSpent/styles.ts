@@ -15,8 +15,8 @@ export const MoreSpentContainer = styled.div`
     gap: 1.5rem;
 
     section {
-      /* min-width: 85px; */
       display: flex;
+      max-width: 40.56px;
       flex-direction: column;
       justify-content: space-around;
       align-items: center;
