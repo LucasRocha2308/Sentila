@@ -61,7 +61,7 @@ export const ContainerForm = styled.div`
 export const Background = styled.div`
     width: 50vw;
     height: 100vh;
-    background: url(${ImgBackground}) no-repeat center;
+    background: url(${ImgBackground}) no-repeat center #2d3997;
     background-size: contain;
     @media (max-width: 768px) {
         display: none;
