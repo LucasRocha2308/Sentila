@@ -76,7 +76,7 @@ export default function Header(props: any) {
                                     <li
                                         className="btn-1"
                                         onClick={() =>
-                                            handleRedirect("/register")
+                                            handleRedirect("/expenses")
                                         }
                                     >
                                         DESPESAS
@@ -84,16 +84,14 @@ export default function Header(props: any) {
                                     <li
                                         className="btn-1"
                                         onClick={() =>
-                                            handleRedirect("/register")
+                                            handleRedirect("/proposals")
                                         }
                                     >
                                         PROPOSTAS
                                     </li>
                                     <li
                                         className="btn-1"
-                                        onClick={() =>
-                                            handleRedirect("/register")
-                                        }
+                                        onClick={() => handleRedirect("/about")}
                                     >
                                         SOBRE NÓS
                                     </li>
