@@ -1,10 +1,10 @@
 import { StyledCarousel, ProposalsContainer } from "./styles";
-
 import { useProposals } from "../../provider/proposals";
 import { ImPlay2 } from "react-icons/im";
+import { Link } from "react-router-dom";
 
-const Proposals = () => {
-  const { proposals } = useProposals();
+const CarouselProposals = () => {
+  const { proposals, setIdProposals } = useProposals();
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -46,15 +46,15 @@ const Proposals = () => {
             <h5>{item.siglaTipo}</h5>
             <p>
               {item.ementa.length > 50
-                ? `${item.ementa.substring(0, 150)}...`
+                ? `${item.ementa.substring(0, 100)}...`
                 : item.ementa}
             </p>
 
-            <a href="/proposals">
-              <span>
+            <Link to="/proposals">
+              <button onClick={() => setIdProposals(item.id)}>
                 Saiba mais <ImPlay2 />
-              </span>
-            </a>
+              </button>
+            </Link>
           </section>
         ))}
       </StyledCarousel>
@@ -62,4 +62,4 @@ const Proposals = () => {
     </ProposalsContainer>
   );
 };
-export default Proposals;
+export default CarouselProposals;

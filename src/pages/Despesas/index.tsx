@@ -5,7 +5,7 @@ const Despesas = () => {
   return (
     <>
       <Header />
-      <Filter />
+      <Filter title={"Busque pelas despesas de um deputado"} />
     </>
   );
 };
