@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 443px;
+  height: 423px;
 
   background: linear-gradient(180deg, #252744 0%, #34438e 100%);
   border-radius: 7px;
@@ -13,7 +13,7 @@ export const Container = styled.div`
     line-height: 25px;
     text-transform: uppercase;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
   }
   div {
     display: flex;
