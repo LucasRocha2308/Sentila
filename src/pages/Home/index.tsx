@@ -3,7 +3,7 @@ import MoreSpent from "../../components/MoreSpent";
 import MoreSaved from "../../components/WhoSavedTheMost";
 import Footer from "../../components/Footer";
 import SectionHero from "../../components/SectionHero";
-import Proposals from "../../components/Proposals";
+import CarouselProposals from "../../components/CarouselProposals";
 import Header from "../../components/Header";
 
 const Home = () => {
@@ -22,7 +22,7 @@ const Home = () => {
         <MoreSpent />
       </div>
       <MoreSaved />
-      <Proposals />
+      <CarouselProposals />
       <Footer />
     </Container>
   );
