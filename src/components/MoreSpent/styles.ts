@@ -46,18 +46,6 @@ export const MoreSpentContainer = styled.div`
 
         border-radius: 6.34884px;
         width: 40.56px;
-        animation: animate-height 4s;
-
-        @keyframes animate-height {
-          0% {
-            height: 10px;
-            opacity: 0;
-          }
-          100% {
-            visibility: visible;
-            opacity: 1;
-          }
-        }
       }
     }
   }

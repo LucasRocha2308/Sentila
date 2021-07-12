@@ -35,7 +35,7 @@ const Proposals = () => {
         infinite={true}
         ssr={true}
         showDots={true}
-        autoPlay={false}
+        autoPlay={true}
         itemClass="carousel-item-padding-40-px"
         autoPlaySpeed={10000}
         removeArrowOnDeviceType={["tablet", "mobile"]}
