@@ -9,9 +9,11 @@ import { toast } from "react-toastify";
 import Button from "../../components/Button";
 import apiAuth from "../../services/api-auth";
 
+import { useIsLogin } from "../../provider/isLogin";
+
 const Login = () => {
   const schema = yup.object().shape({
-    email: yup.string().email('E-mail inválido').required("Campo obrigatório!"),
+    email: yup.string().email("E-mail inválido").required("Campo obrigatório!"),
     password: yup
       .string()
       .min(6, "Mínimo de 6 dígitos!")
@@ -30,20 +32,28 @@ const Login = () => {
   }
 
   const history = useHistory();
+  const { isLogin, setIsLogin } = useIsLogin();
   const onSubmitFunction = ({ email, password }: Auth) => {
     const user = { email, password };
     apiAuth
       .post("login/", user)
       .then((response) => {
-          console.log(response)
+        console.log(response);
         toast.info("Bem vindo");
         localStorage.clear();
-        localStorage.setItem("@Sentinela/token", JSON.stringify(response.data.accessToken))
+        localStorage.setItem(
+          "@Sentinela/token",
+          JSON.stringify(response.data.accessToken)
+        );
       })
-      .then((_) => history.push("/expenses"))
+      .then((_) => {
+        history.push("/expenses");
+        setIsLogin(true);
+      })
       .catch((err) => {
-          console.log(err)
+        console.log(err);
         toast.error("Login e senha não encontrado");
+        setIsLogin(false);
       });
   };
 
