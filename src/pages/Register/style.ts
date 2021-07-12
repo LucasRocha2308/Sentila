@@ -54,4 +54,7 @@ export const ContainerForm = styled.div`
       color: var(--light-blue);
     }
   }
+  .MuiOutlinedInput-root {
+        margin-bottom: 8px;
+    }
 `;

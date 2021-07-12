@@ -5,13 +5,13 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Input from "../../components/Input";
 import { useForm } from "react-hook-form";
-import api from "../../services/api";
 import { toast } from "react-toastify";
 import Button from "../../components/Button";
+import apiAuth from "../../services/api-auth";
 
 const Login = () => {
   const schema = yup.object().shape({
-    username: yup.string().required("Campo obrigatório!"),
+    email: yup.string().email('E-mail inválido').required("Campo obrigatório!"),
     password: yup
       .string()
       .min(6, "Mínimo de 6 dígitos!")
@@ -25,21 +25,25 @@ const Login = () => {
 
   interface Auth {
     id?: number;
-    username: string;
+    email: string;
     password: string;
   }
 
   const history = useHistory();
-  const onSubmitFunction = ({ username, password }: Auth) => {
-    const user = { username, password };
-    api
-      .post("users/", user)
-      .then((_) => {
-        toast.success("Sucesso ao criar a conta");
-        return history.push("/login");
+  const onSubmitFunction = ({ email, password }: Auth) => {
+    const user = { email, password };
+    apiAuth
+      .post("login/", user)
+      .then((response) => {
+          console.log(response)
+        toast.info("Bem vindo");
+        localStorage.clear();
+        localStorage.setItem("@Sentinela/token", JSON.stringify(response.data.accessToken))
       })
-      .catch((_) => {
-        toast.error(" Este usuário já está cadastrado");
+      .then((_) => history.push("/expenses"))
+      .catch((err) => {
+          console.log(err)
+        toast.error("Login e senha não encontrado");
       });
   };
 
@@ -62,10 +66,10 @@ const Login = () => {
               <h2>LOGIN</h2>
               <Input
                 register={register}
-                name="username"
-                label="Usuário"
+                name="email"
+                label="E-mail"
                 // error={errors.username?.message}
-                placeholder="Username"
+                placeholder="email"
               />
               <div>
                 <Input
@@ -77,7 +81,7 @@ const Login = () => {
                   placeholder="Password"
                 />
               </div>
-              <Button value="Cadastrar" />
+              <Button value="Entrar" />
               <h4>
                 Ainda não possui cadastro? <Link to="/register">Cadastrar</Link>
               </h4>
