@@ -1,8 +1,13 @@
 import { top5 } from "../../mock/top5Spending";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 import { MoreSpentContainer, Image } from "./styles";
 
 const MoreSpent = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1500 });
+  }, []);
   return (
     <MoreSpentContainer>
       <h2>
@@ -12,7 +17,7 @@ const MoreSpent = () => {
         <br />
         😡
       </h2>
-      <div>
+      <div data-aos="fade-up" data-aos-easing="linear">
         {top5.map((item, key) => (
           <section key={key}>
             <span>

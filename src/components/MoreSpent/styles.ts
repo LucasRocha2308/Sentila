@@ -15,8 +15,8 @@ export const MoreSpentContainer = styled.div`
     gap: 1.5rem;
 
     section {
-      /* min-width: 85px; */
       display: flex;
+      max-width: 40.56px;
       flex-direction: column;
       justify-content: space-around;
       align-items: center;
@@ -46,18 +46,6 @@ export const MoreSpentContainer = styled.div`
 
         border-radius: 6.34884px;
         width: 40.56px;
-        animation: animate-height 4s;
-
-        @keyframes animate-height {
-          0% {
-            height: 10px;
-            opacity: 0;
-          }
-          100% {
-            visibility: visible;
-            opacity: 1;
-          }
-        }
       }
     }
   }

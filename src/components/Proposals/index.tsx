@@ -20,14 +20,14 @@ const Proposals = () => {
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 1,
+      items: 1.8,
     },
   };
 
   return (
     <ProposalsContainer>
       <h2>
-        Propostas <br />
+        Últimas Propostas <br />
         📝
       </h2>
       <StyledCarousel
@@ -58,6 +58,7 @@ const Proposals = () => {
           </section>
         ))}
       </StyledCarousel>
+      <div className="carousel__spacing"></div>
     </ProposalsContainer>
   );
 };

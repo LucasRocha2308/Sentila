@@ -5,16 +5,17 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Input from "../../components/Input";
 import { useForm } from "react-hook-form";
-import api from "../../services/api";
+import apiAuth from "../../services/api-auth";
 import { toast } from "react-toastify";
 import Button from "../../components/Button";
 
 const Register = () => {
   const schema = yup.object().shape({
-    username: yup.string().required("Campo obrigatório!"),
+    name: yup.string().required("Campo obrigatório!"),
+    email: yup.string().email('E-mail inválido').required("Campo obrigatório!"),
     password: yup
       .string()
-      .min(6, "Mínimo de 6 dígitos!")
+      .min(5, "Mínimo de 5 dígitos!")
       .required("Campo obrigatório!"),
     passwordConfirm: yup
       .string()
@@ -29,20 +30,23 @@ const Register = () => {
 
   interface Auth {
     id?: number;
-    username: string;
+    name: string;
     password: string;
+    email: string;
   }
 
   const history = useHistory();
-  const onSubmitFunction = ({ username, password }: Auth) => {
-    const user = { username, password };
-    api
-      .post("users/", user)
-      .then((_) => {
-        toast.success("Sucesso ao criar a conta");
+  const onSubmitFunction = ({ name, password, email }: Auth) => {
+    const user = { name, password, email };
+    apiAuth
+      .post("register/", user)
+      .then((response) => {
+          console.log(response)
+        toast.info("Conta criada com sucesso");
         return history.push("/login");
       })
       .catch((_) => {
+          console.log('erro')
         toast.error(" Este usuário já está cadastrado");
       });
   };
@@ -66,12 +70,20 @@ const Register = () => {
               <h2>CADASTRO</h2>
               <Input
                 register={register}
-                name="username"
+                name="name"
                 label="Usuário"
                 // error={errors.username?.message}
                 placeholder="Username"
               />
               <div>
+                <Input
+                  type="email"
+                  name="email"
+                  label="E-mail"
+                  register={register}
+                  // error={errors.passwordConfirm?.message}
+                  placeholder="email"
+                />
                 <Input
                   type="password"
                   name="password"
