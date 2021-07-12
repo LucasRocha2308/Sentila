@@ -1,4 +1,11 @@
-import { ContainerFormAll, ContainerForm, ContainerRegister } from "./style";
+import {
+  ContainerFormAll,
+  ContainerForm,
+  ContainerRegister,
+  Container,
+  ContainerOut,
+  Background,
+} from "./style";
 
 import { Link, useHistory } from "react-router-dom";
 import * as yup from "yup";
@@ -58,48 +65,52 @@ const Login = () => {
   };
 
   return (
-    <>
-      <p style={{ marginTop: 20, marginLeft: 20 }}>
-        <a href="/" style={{ color: "#444548" }}>
-          Home
-        </a>
-        <span> {">"} </span>
-        <a href="login" style={{ color: " #4DBFF6" }}>
-          Login
-        </a>
-      </p>
+    <ContainerOut>
+      <Background />
 
-      <ContainerFormAll>
-        <ContainerRegister>
-          <ContainerForm>
-            <form onSubmit={handleSubmit(onSubmitFunction)}>
-              <h2>LOGIN</h2>
-              <Input
-                register={register}
-                name="email"
-                label="E-mail"
-                // error={errors.username?.message}
-                placeholder="email"
-              />
-              <div>
+      <Container>
+        <p style={{ marginTop: 20, marginLeft: 20 }}>
+          <a href="/" style={{ color: "#444548" }}>
+            Home
+          </a>
+          <span> {">"} </span>
+          <a href="login" style={{ color: " #4DBFF6" }}>
+            Login
+          </a>
+        </p>
+        <ContainerFormAll>
+          <ContainerRegister>
+            <ContainerForm>
+              <form onSubmit={handleSubmit(onSubmitFunction)}>
+                <h2>LOGIN</h2>
                 <Input
-                  type="password"
-                  name="password"
-                  label="Senha"
                   register={register}
-                  // error={errors.password?.message}
-                  placeholder="Password"
+                  name="email"
+                  label="E-mail"
+                  // error={errors.username?.message}
+                  placeholder="email"
                 />
-              </div>
-              <Button value="Entrar" />
-              <h4>
-                Ainda não possui cadastro? <Link to="/register">Cadastrar</Link>
-              </h4>
-            </form>
-          </ContainerForm>
-        </ContainerRegister>
-      </ContainerFormAll>
-    </>
+                <div>
+                  <Input
+                    type="password"
+                    name="password"
+                    label="Senha"
+                    register={register}
+                    // error={errors.password?.message}
+                    placeholder="Password"
+                  />
+                </div>
+                <Button value="Entrar" />
+                <h4>
+                  Ainda não possui cadastro?{" "}
+                  <Link to="/register">Cadastrar</Link>
+                </h4>
+              </form>
+            </ContainerForm>
+          </ContainerRegister>
+        </ContainerFormAll>
+      </Container>
+    </ContainerOut>
   );
 };
 export default Login;

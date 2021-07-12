@@ -1,5 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import About from "../pages/About";
 import Expenses from "../pages/Expenses";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
@@ -15,7 +16,7 @@ function AppRoutes() {
         <Route exact path="/register" component={Register} />
         <Route exact path="/expenses" component={Expenses} />
         <Route exact path="/proposals" component={Home} />
-        <Route exact path="/about" component={Home} />
+        <Route exact path="/about" component={About} />
       </Switch>
     </>
   );
