@@ -68,16 +68,15 @@ const Login = () => {
     <ContainerOut>
       <Header />
       <Background />
-
       <Container>
         <p style={{ margin: "5rem 1rem 0" }}>
-          <a href="/" style={{ color: "#444548" }}>
+          <Link to="/" style={{ color: "#444548" }}>
             Home
-          </a>
+          </Link>
           <span> {">"} </span>
-          <a href="login" style={{ color: " #4DBFF6" }}>
+          <Link to="/login" style={{ color: " #4DBFF6" }}>
             Login
-          </a>
+          </Link>
         </p>
         <ContainerFormAll>
           <ContainerRegister>

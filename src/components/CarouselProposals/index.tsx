@@ -50,10 +50,8 @@ const CarouselProposals = () => {
                 : item.ementa}
             </p>
 
-            <Link to="/proposals">
-              <button onClick={() => setIdProposals(item.id)}>
-                Saiba mais <ImPlay2 />
-              </button>
+            <Link to="/proposals" onClick={() => setIdProposals(item.id)}>
+              Saiba mais <ImPlay2 />
             </Link>
           </section>
         ))}
