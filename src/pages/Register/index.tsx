@@ -64,13 +64,13 @@ const Register = () => {
       <Header />
       <Container>
         <p style={{ margin: "5rem 1rem 1rem" }}>
-          <a href="/" style={{ color: "#444548" }}>
+          <Link to="/" style={{ color: "#444548" }}>
             Home
-          </a>
+          </Link>
           <span> {">"} </span>
-          <a href="register" style={{ color: " #4DBFF6" }}>
+          <Link to="/register" style={{ color: " #4DBFF6" }}>
             Cadastro
-          </a>
+          </Link>
         </p>
 
         <ContainerFormAll>
