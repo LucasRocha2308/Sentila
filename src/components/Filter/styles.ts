@@ -1,10 +1,14 @@
 import styled from "styled-components";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 export const FilterContainer = styled.div`
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 1rem;
+
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark-blue);
+    margin: 2rem 0 1rem 0;
+  }
 `;
 
 export const AutoCompleteStyle = styled(Autocomplete)`
@@ -19,5 +23,6 @@ export const AutoCompleteStyle = styled(Autocomplete)`
 `;
 export const ContainerDate = styled.div`
   display: flex;
-  gap: 60px;
+  gap: 1.5rem;
+  width: 100%;
 `;

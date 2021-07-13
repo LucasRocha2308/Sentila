@@ -5,6 +5,11 @@ export const FilterContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  h2 {
+    font-size: 1rem;
+    color: var(--dark-blue);
+  }
 `;
 
 export const AutoCompleteStyle = styled(Autocomplete)`

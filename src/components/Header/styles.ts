@@ -39,7 +39,8 @@ export const ToolbarStyled = styled(Toolbar)<{ openMenu: boolean }>`
         openMenu ? "var(--dark-blue) !important;" : "var(--white) !important;"};
       content: "x";
       cursor: pointer;
-      margin-right: 1rem;
+      display: flex;
+      align-items: center;
     }
   }
 `;

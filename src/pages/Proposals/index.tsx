@@ -26,26 +26,29 @@ const Proposals = () => {
   return (
     <>
       <Header />
-      <FilterProposals
-        action={action}
-        title={"Busque pelas propostas de um deputado"}
-      />
 
-      {!!proposalsDeputei.length &&
-        proposalsDeputei.map((item, i) => <p key={i}> {item.ementa} </p>)}
-      {!proposalsDeputei.length && hasSearched && "Proposta sem"}
-      {!hasSearched &&
-        proposalsCarousel.map((item, key) => (
-          <section key={key}>
-            <h4>Proposta {item.codTipo}</h4>
-            <h5>{item.siglaTipo}</h5>
-            <h6>{item.descricaoTipo}</h6>
-            <p>{item.statusProposicao?.despacho}</p>
-            <p>{item.statusProposicao?.descricaoTramitacao}</p>
-            <p>{item.statusProposicao?.descricaoSituacao}</p>
-            <p>{item.ementa}</p>
-          </section>
-        ))}
+      <div style={{ margin: "5rem 1rem 0" }}>
+        <FilterProposals
+          action={action}
+          title={"Busque pelas propostas de um deputado"}
+        />
+
+        {!!proposalsDeputei.length &&
+          proposalsDeputei.map((item, i) => <p key={i}> {item.ementa} </p>)}
+        {!proposalsDeputei.length && hasSearched && "Proposta sem"}
+        {!hasSearched &&
+          proposalsCarousel.map((item, key) => (
+            <section key={key}>
+              <h4>Proposta {item.codTipo}</h4>
+              <h5>{item.siglaTipo}</h5>
+              <h6>{item.descricaoTipo}</h6>
+              <p>{item.statusProposicao?.despacho}</p>
+              <p>{item.statusProposicao?.descricaoTramitacao}</p>
+              <p>{item.statusProposicao?.descricaoSituacao}</p>
+              <p>{item.ementa}</p>
+            </section>
+          ))}
+      </div>
     </>
   );
 };

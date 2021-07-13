@@ -8,13 +8,14 @@ export const ButtonStyle = styled.button`
   font-weight: bold;
   font-size: 16px;
   line-height: 24px;
-  padding: 16px 150px;
+  width: 100%;
+  padding: 1rem 0;
   color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
-  margin-top: 10px;
+  margin-top: 1rem;
   :hover {
     opacity: 0.8;
   }

@@ -17,6 +17,7 @@ import Button from "../../components/Button";
 import apiAuth from "../../services/api-auth";
 
 import { useIsLogin } from "../../provider/isLogin";
+import Header from "../../components/Header";
 
 const Login = () => {
   const schema = yup.object().shape({
@@ -66,10 +67,11 @@ const Login = () => {
 
   return (
     <ContainerOut>
+      <Header />
       <Background />
 
       <Container>
-        <p style={{ marginTop: 20, marginLeft: 20 }}>
+        <p style={{ margin: "5rem 1rem 0" }}>
           <a href="/" style={{ color: "#444548" }}>
             Home
           </a>

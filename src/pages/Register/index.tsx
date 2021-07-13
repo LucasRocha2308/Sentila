@@ -1,10 +1,10 @@
 import {
-    ContainerFormAll,
-    ContainerForm,
-    ContainerRegister,
-    Background,
-    Container,
-    ContainerOut,
+  ContainerFormAll,
+  ContainerForm,
+  ContainerRegister,
+  Background,
+  Container,
+  ContainerOut,
 } from "./style";
 
 import { Link, useHistory } from "react-router-dom";
@@ -15,116 +15,114 @@ import { useForm } from "react-hook-form";
 import apiAuth from "../../services/api-auth";
 import { toast } from "react-toastify";
 import Button from "../../components/Button";
+import Header from "../../components/Header";
 
 const Register = () => {
-    const schema = yup.object().shape({
-        name: yup.string().required("Campo obrigatório!"),
-        email: yup
-            .string()
-            .email("E-mail inválido")
-            .required("Campo obrigatório!"),
-        password: yup
-            .string()
-            .min(5, "Mínimo de 5 dígitos!")
-            .required("Campo obrigatório!"),
-        passwordConfirm: yup
-            .string()
-            .oneOf([yup.ref("password")], "Senhas diferentes")
-            .required("Obrigatório!"),
-    });
-    const {
-        register,
-        handleSubmit,
-        // formState: { errors },
-    } = useForm({ resolver: yupResolver(schema) });
+  const schema = yup.object().shape({
+    name: yup.string().required("Campo obrigatório!"),
+    email: yup.string().email("E-mail inválido").required("Campo obrigatório!"),
+    password: yup
+      .string()
+      .min(5, "Mínimo de 5 dígitos!")
+      .required("Campo obrigatório!"),
+    passwordConfirm: yup
+      .string()
+      .oneOf([yup.ref("password")], "Senhas diferentes")
+      .required("Obrigatório!"),
+  });
+  const {
+    register,
+    handleSubmit,
+    // formState: { errors },
+  } = useForm({ resolver: yupResolver(schema) });
 
-    interface Auth {
-        id?: number;
-        name: string;
-        password: string;
-        email: string;
-    }
+  interface Auth {
+    id?: number;
+    name: string;
+    password: string;
+    email: string;
+  }
 
-    const history = useHistory();
-    const onSubmitFunction = ({ name, password, email }: Auth) => {
-        const user = { name, password, email };
-        apiAuth
-            .post("register/", user)
-            .then((response) => {
-                console.log(response);
-                toast.info("Conta criada com sucesso");
-                return history.push("/login");
-            })
-            .catch((_) => {
-                console.log("erro");
-                toast.error(" Este usuário já está cadastrado");
-            });
-    };
+  const history = useHistory();
+  const onSubmitFunction = ({ name, password, email }: Auth) => {
+    const user = { name, password, email };
+    apiAuth
+      .post("register/", user)
+      .then((response) => {
+        console.log(response);
+        toast.info("Conta criada com sucesso");
+        return history.push("/login");
+      })
+      .catch((_) => {
+        console.log("erro");
+        toast.error(" Este usuário já está cadastrado");
+      });
+  };
 
-    return (
-        <ContainerOut>
-            <Container>
-                <p style={{ marginTop: 20, marginLeft: 20 }}>
-                    <a href="/" style={{ color: "#444548" }}>
-                        Home
-                    </a>
-                    <span> {">"} </span>
-                    <a href="register" style={{ color: " #4DBFF6" }}>
-                        Cadastro
-                    </a>
+  return (
+    <ContainerOut>
+      <Header />
+      <Container>
+        <p style={{ margin: "5rem 1rem 1rem" }}>
+          <a href="/" style={{ color: "#444548" }}>
+            Home
+          </a>
+          <span> {">"} </span>
+          <a href="register" style={{ color: " #4DBFF6" }}>
+            Cadastro
+          </a>
+        </p>
+
+        <ContainerFormAll>
+          <ContainerRegister>
+            <ContainerForm>
+              <form onSubmit={handleSubmit(onSubmitFunction)}>
+                <h2>CADASTRO</h2>
+                <Input
+                  register={register}
+                  name="name"
+                  label="Usuário"
+                  // error={errors.username?.message}
+                  placeholder="Username"
+                />
+                <div>
+                  <Input
+                    type="email"
+                    name="email"
+                    label="E-mail"
+                    register={register}
+                    // error={errors.passwordConfirm?.message}
+                    placeholder="email"
+                  />
+                  <Input
+                    type="password"
+                    name="password"
+                    label="Senha"
+                    register={register}
+                    // error={errors.password?.message}
+                    placeholder="Password"
+                  />
+                  <Input
+                    type="password"
+                    name="passwordConfirm"
+                    label="Confirme senha"
+                    register={register}
+                    // error={errors.passwordConfirm?.message}
+                    placeholder="Password Confirm"
+                  />
+                </div>
+
+                <Button value="Cadastrar" />
+                <p>
+                  Já possui conta? <Link to="/login">Login</Link>
                 </p>
-
-                <ContainerFormAll>
-                    <ContainerRegister>
-                        <ContainerForm>
-                            <form onSubmit={handleSubmit(onSubmitFunction)}>
-                                <h2>CADASTRO</h2>
-                                <Input
-                                    register={register}
-                                    name="name"
-                                    label="Usuário"
-                                    // error={errors.username?.message}
-                                    placeholder="Username"
-                                />
-                                <div>
-                                    <Input
-                                        type="email"
-                                        name="email"
-                                        label="E-mail"
-                                        register={register}
-                                        // error={errors.passwordConfirm?.message}
-                                        placeholder="email"
-                                    />
-                                    <Input
-                                        type="password"
-                                        name="password"
-                                        label="Senha"
-                                        register={register}
-                                        // error={errors.password?.message}
-                                        placeholder="Password"
-                                    />
-                                    <Input
-                                        type="password"
-                                        name="passwordConfirm"
-                                        label="Confirme senha"
-                                        register={register}
-                                        // error={errors.passwordConfirm?.message}
-                                        placeholder="Password Confirm"
-                                    />
-                                </div>
-
-                                <Button value="Cadastrar" />
-                                <p>
-                                    Já possui conta?{" "}
-                                    <Link to="/login">Login</Link>
-                                </p>
-                            </form>
-                        </ContainerForm>
-                    </ContainerRegister>
-                </ContainerFormAll>
-            </Container>
-            <Background />
-        </ContainerOut>
-    );
+              </form>
+            </ContainerForm>
+          </ContainerRegister>
+        </ContainerFormAll>
+      </Container>
+      <Background />
+    </ContainerOut>
+  );
 };
 export default Register;
