@@ -1,15 +1,17 @@
 import React from "react";
 import Filter from "../../components/Filter";
+import Header from "../../components/Header";
 
 const Expenses = () => {
   return (
     <>
-      <p style={{ marginTop: 20, marginLeft: 20 }}>
+      <Header />
+      <p style={{ margin: "5rem 1rem 1rem" }}>
         <a href="/" style={{ color: "#444548" }}>
           Home
         </a>
         <span> {">"} </span>
-        <a href="register" style={{ color: " #4DBFF6" }}>
+        <a href="register" style={{ color: " #4DBFF6", fontWeight: "bold" }}>
           Despesas
         </a>
       </p>
