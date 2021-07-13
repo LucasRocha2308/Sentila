@@ -6,83 +6,223 @@ import { FooterStyled, ContentStyled, IconButtonStyled } from "./styles";
 
 import footerLogo from "../../assets/img/logo-footer.svg";
 
+import { useHistory } from "react-router";
+
+import useWindowDimensions from "../../provider/windowDimensions";
+
 const Footer = () => {
-  const [expandedNav, setExpandedNav] = useState(false);
-  const [expandedContacts, setExpandedContacts] = useState(false);
-  const [expandedSupport, setExpandedSupport] = useState(false);
+    const history = useHistory();
 
-  const handleExpandClickNav = () => {
-    setExpandedNav(!expandedNav);
-  };
+    const [expandedNav, setExpandedNav] = useState(false);
+    const [expandedContacts, setExpandedContacts] = useState(false);
+    const [expandedSupport, setExpandedSupport] = useState(false);
+    const { width } = useWindowDimensions();
 
-  const handleExpandClickContacts = () => {
-    setExpandedContacts(!expandedContacts);
-  };
+    const handleExpandClickNav = () => {
+        setExpandedNav(!expandedNav);
+    };
 
-  const handleExpandClickSupport = () => {
-    setExpandedSupport(!expandedSupport);
-  };
-  return (
-    <>
-      <FooterStyled>
-        <div className="footer__bg">
-          <ContentStyled>
-            <span className="footer__menu">navegar</span>
-            <IconButtonStyled
-              onClick={handleExpandClickNav}
-              aria-expanded={expandedNav}
-              aria-label="show more"
-            >
-              <ExpandMoreIcon />
-            </IconButtonStyled>
-            <Collapse in={expandedNav} timeout="auto" unmountOnExit>
-              <nav>
-                <div>Sobre</div>
-                <div>Quem mais gastou</div>
-                <div>Quem mais economizou</div>
-                <div>Propostas</div>
-              </nav>
-            </Collapse>
-          </ContentStyled>
-          <ContentStyled>
-            <span className="footer__menu">Contato</span>
-            <IconButtonStyled
-              onClick={handleExpandClickContacts}
-              aria-expanded={expandedContacts}
-              aria-label="show more"
-            >
-              <ExpandMoreIcon />
-            </IconButtonStyled>
-            <Collapse in={expandedContacts} timeout="auto" unmountOnExit>
-              <nav>
-                <div>Nossa equipe</div>
-              </nav>
-            </Collapse>
-          </ContentStyled>
-          <ContentStyled>
-            <span className="footer__menu">Apoie</span>
-            <IconButtonStyled
-              onClick={handleExpandClickSupport}
-              aria-expanded={expandedSupport}
-              aria-label="show more"
-            >
-              <ExpandMoreIcon />
-            </IconButtonStyled>
-            <Collapse in={expandedSupport} timeout="auto" unmountOnExit>
-              <nav>
-                <div>Github</div>
-                <div>Sugestões</div>
-                <div>Paypal</div>
-                <div>Pix</div>
-              </nav>
-            </Collapse>
-          </ContentStyled>
-          <div className="footer__logo">
-            <img src={footerLogo} alt="Sentinel" />
-          </div>
-        </div>
-      </FooterStyled>
-    </>
-  );
+    const handleExpandClickContacts = () => {
+        setExpandedContacts(!expandedContacts);
+    };
+
+    const handleExpandClickSupport = () => {
+        setExpandedSupport(!expandedSupport);
+    };
+    const handleRedirect = (path: string) => {
+        history.push(path);
+    };
+    return (
+        <>
+            <FooterStyled>
+                <div className="footer__bg">
+                    {Number(width) < 768 ? (
+                        <div className="navigation">
+                            <ContentStyled>
+                                <span className="footer__menu">navegar</span>
+
+                                <IconButtonStyled
+                                    onClick={handleExpandClickNav}
+                                    aria-expanded={expandedNav}
+                                    aria-label="show more"
+                                >
+                                    <ExpandMoreIcon />
+                                </IconButtonStyled>
+                                <Collapse
+                                    in={expandedNav}
+                                    timeout="auto"
+                                    unmountOnExit
+                                >
+                                    <nav>
+                                        <ul>
+                                            <li
+                                                onClick={() =>
+                                                    handleRedirect("/about")
+                                                }
+                                            >
+                                                Sobre
+                                            </li>
+                                            <li
+                                                onClick={() =>
+                                                    handleRedirect("/expenses")
+                                                }
+                                            >
+                                                Quem mais gastou
+                                            </li>
+                                            <li
+                                                onClick={() =>
+                                                    handleRedirect("/expenses")
+                                                }
+                                            >
+                                                Quem mais economizou
+                                            </li>
+                                            <li
+                                                onClick={() =>
+                                                    handleRedirect("/proposals")
+                                                }
+                                            >
+                                                Propostas
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </Collapse>
+                            </ContentStyled>
+                            <ContentStyled>
+                                <span className="footer__menu">Contato</span>
+                                <IconButtonStyled
+                                    onClick={handleExpandClickContacts}
+                                    aria-expanded={expandedContacts}
+                                    aria-label="show more"
+                                >
+                                    <ExpandMoreIcon />
+                                </IconButtonStyled>
+                                <Collapse
+                                    in={expandedContacts}
+                                    timeout="auto"
+                                    unmountOnExit
+                                >
+                                    <nav>
+                                        <ul>
+                                            <li
+                                                onClick={() =>
+                                                    handleRedirect("/about")
+                                                }
+                                            >
+                                                Nossa equipe
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </Collapse>
+                            </ContentStyled>
+                            <ContentStyled>
+                                <span className="footer__menu">Apoie</span>
+                                <IconButtonStyled
+                                    onClick={handleExpandClickSupport}
+                                    aria-expanded={expandedSupport}
+                                    aria-label="show more"
+                                >
+                                    <ExpandMoreIcon />
+                                </IconButtonStyled>
+                                <Collapse
+                                    in={expandedSupport}
+                                    timeout="auto"
+                                    unmountOnExit
+                                >
+                                    <nav>
+                                        <ul>
+                                            <li>Github</li>
+                                            <li>Sugestões</li>
+                                            <li>Paypal</li>
+                                            <li>Pix</li>
+                                        </ul>
+                                    </nav>
+                                </Collapse>
+                            </ContentStyled>
+                        </div>
+                    ) : (
+                        <div className="navigation">
+                            <ContentStyled>
+                                <span className="footer__menu">navegar</span>
+
+                                <nav>
+                                    <ul>
+                                        <li
+                                            onClick={() =>
+                                                handleRedirect("/about")
+                                            }
+                                        >
+                                            Sobre
+                                        </li>
+                                        <li
+                                            onClick={() =>
+                                                handleRedirect("/expenses")
+                                            }
+                                        >
+                                            Quem mais gastou
+                                        </li>
+                                        <li
+                                            onClick={() =>
+                                                handleRedirect("/expenses")
+                                            }
+                                        >
+                                            Quem mais economizou
+                                        </li>
+                                        <li
+                                            onClick={() =>
+                                                handleRedirect("/proposals")
+                                            }
+                                        >
+                                            Propostas
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </ContentStyled>
+
+                            <ContentStyled>
+                                <span className="footer__menu">Apoie</span>
+
+                                <nav>
+                                    <ul>
+                                        <li>Github</li>
+                                        <li>Sugestões</li>
+                                        <li>Paypal</li>
+                                        <li>Pix</li>
+                                    </ul>
+                                </nav>
+                            </ContentStyled>
+                            <ContentStyled>
+                                <span className="footer__menu">Contato</span>
+
+                                <nav>
+                                    <ul>
+                                        <li
+                                            onClick={() =>
+                                                handleRedirect("/about")
+                                            }
+                                        >
+                                            Nossa equipe
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </ContentStyled>
+                        </div>
+                    )}
+                    {Number(width) >= 768 && (
+                        <div className="text">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna sed do
+                                eiusmo daliqua.
+                            </p>
+                        </div>
+                    )}
+                    <div className="footer__logo">
+                        <img src={footerLogo} alt="Sentinel" />
+                    </div>
+                </div>
+            </FooterStyled>
+        </>
+    );
 };
 export default Footer;

@@ -3,14 +3,14 @@ import { ProposalsProvider } from "./proposals";
 import { DeputiesProvider } from "./ deputies";
 
 interface ProvidersProps {
-  children: ReactNode;
+    children: ReactNode;
 }
 const Providers = ({ children }: ProvidersProps) => {
-  return (
-    <ProposalsProvider>
-      <DeputiesProvider>{children}</DeputiesProvider>
-    </ProposalsProvider>
-  );
+    return (
+        <ProposalsProvider>
+            <DeputiesProvider>{children}</DeputiesProvider>
+        </ProposalsProvider>
+    );
 };
 
 export default Providers;
