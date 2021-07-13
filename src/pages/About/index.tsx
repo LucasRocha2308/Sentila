@@ -2,6 +2,7 @@ import Header from "../../components/Header";
 import { Container, ContainerAbout } from "./styles";
 import { AiFillLinkedin } from "react-icons/ai";
 import { AiFillGitlab } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 import imgAmanda from "../../assets/img/amandaMendeiros.jpeg";
 import imgIoane from "../../assets/img/ioane.jpeg";
@@ -15,16 +16,16 @@ const About = () => {
   return (
     <>
       <Header />
-      <p style={{ marginTop: 20, marginLeft: 20 }}>
-        <a href="/" style={{ color: "#444548" }}>
-          Home
-        </a>
-        <span> {">"} </span>
-        <a href="login" style={{ color: " #4DBFF6" }}>
-          Sobre nós
-        </a>
-      </p>
       <Container>
+        <p style={{ margin: "5rem 1rem 0" }}>
+          <Link to="/" style={{ color: "#444548" }}>
+            Home
+          </Link>
+          <span> {">"} </span>
+          <Link to="/about" style={{ color: " #4DBFF6" }}>
+            Sobre nós
+          </Link>
+        </p>
         <h1>APLICATIVO</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

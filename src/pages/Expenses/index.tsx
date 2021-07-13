@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Filter from "../../components/Filter";
 import Header from "../../components/Header";
 
@@ -7,13 +8,13 @@ const Expenses = () => {
     <>
       <Header />
       <p style={{ margin: "5rem 1rem 1rem" }}>
-        <a href="/" style={{ color: "#444548" }}>
+        <Link to="/" style={{ color: "#444548" }}>
           Home
-        </a>
+        </Link>
         <span> {">"} </span>
-        <a href="register" style={{ color: " #4DBFF6", fontWeight: "bold" }}>
+        <Link to="/expenses" style={{ color: " #4DBFF6", fontWeight: "bold" }}>
           Despesas
-        </a>
+        </Link>
       </p>
       <Filter title={"Busque pelas despesas de um deputado"} />
     </>
