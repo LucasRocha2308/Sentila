@@ -7,10 +7,12 @@ import { TextField } from "@material-ui/core";
 import { year } from "../../mock/date";
 import { toast } from "react-toastify";
 import { useProposals } from "../../provider/proposals";
-interface Title {
+
+interface FilterProps {
   title: string;
+  action: () => void;
 }
-const FilterProposals = ({ title }: Title) => {
+const FilterProposals = ({ title, action }: FilterProps) => {
   const { deputies } = useDeputies();
   const { setProposalsDeputei } = useProposals();
   const [valueInput, setValueInput] = useState("");
@@ -34,6 +36,7 @@ const FilterProposals = ({ title }: Title) => {
       .catch((_) => {
         toast.error("Campos Obrigatorios");
       });
+    action();
   };
 
   return (
