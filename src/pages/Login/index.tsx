@@ -69,7 +69,6 @@ const Login = () => {
     <ContainerOut>
       <Header />
       <Background />
-      {/* <Link to="/register">Cadastrar</Link> */}
       <Container>
         <p style={{ margin: "5rem 1rem 0" }}>
           <Link to="/" style={{ color: "#444548" }}>
