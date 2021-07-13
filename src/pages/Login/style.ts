@@ -67,7 +67,7 @@ export const Background = styled.div`
   width: 50vw;
   height: 100vh;
   background: url(${ImgBackground}) no-repeat center #2d3997;
-  background-size: contain;
+  background-size: cover;
   @media (max-width: 768px) {
     display: none;
   }
