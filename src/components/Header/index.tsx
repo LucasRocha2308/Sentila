@@ -31,6 +31,8 @@ import { useHistory } from "react-router";
 // };
 
 export default function Header(props: any) {
+  const token = localStorage.getItem("@Sentinela/token")
+
   const [openMenu, setOpenMenu] = useState(false);
   const history = useHistory();
   const handleMenu = () => {
@@ -40,6 +42,10 @@ export default function Header(props: any) {
     history.push(path);
     handleMenu();
   };
+  const logout = () => {
+    localStorage.clear();
+    history.push("/home")
+  }
   return (
     <React.Fragment>
       <CssBaseline />
@@ -57,12 +63,23 @@ export default function Header(props: any) {
               {" "}
               <Nav>
                 <ul>
-                  <li
-                    className="btn-1"
-                    onClick={() => handleRedirect("/login")}
-                  >
-                    LOGIN
-                  </li>
+                    {token ? (
+                        <li
+                        className="btn-1"
+                        onClick={logout}
+                        >
+                        LOGOUT
+                        </li>
+                    ):(
+                        <li
+                        className="btn-1"
+                        onClick={() => handleRedirect("/login")}
+                        >
+                        LOGIN
+                        </li>
+                    )
+                    }
+                  
                   <li
                     className="btn-1"
                     onClick={() => handleRedirect("/register")}
