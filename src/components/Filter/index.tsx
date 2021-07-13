@@ -14,6 +14,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import Contacts from "../Contacts";
 
 const data = [
   {
@@ -69,12 +70,16 @@ const Filter = ({ title }: Title) => {
   const [valueDataYear, setValueDataYear] = useState("");
   const [valueDataMonth, setValueDataMonth] = useState("");
   const [valueId, setValueId] = useState();
+  const [dataDeputies, setdataDeputies] = useState("");
   useEffect(() => {
     api
       .get(`deputados?nome=${valueInput}&ordem=ASC&ordenarPor=nome`)
-      .then((res) => setValueId(res.data.dados[0].id));
+      .then((res) => {
+        setValueId(res.data.dados[0].id);
+      });
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [valueInput]);
 
   const handleDeputeis = () => {
     api
@@ -84,6 +89,11 @@ const Filter = ({ title }: Title) => {
         )}&mes=${parseInt(valueDataMonth)}&ordem=ASC&ordenarPor=ano`
       )
       .then((res) => console.log(res.data.dados));
+
+    api.get(`deputados/${valueId}`).then((res) => {
+      setdataDeputies(res.data.dados.ultimoStatus.gabinete);
+      console.log(res.data.dados.ultimoStatus.gabinete);
+    });
   };
 
   return (
@@ -169,6 +179,7 @@ const Filter = ({ title }: Title) => {
             />
           </AreaChart>
         </ResponsiveContainer>
+        <Contacts data={dataDeputies} />
       </div>
     </FilterContainer>
   );
