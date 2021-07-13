@@ -1,8 +1,14 @@
 import { top3 } from "../../mock/top3MoreSaved";
 import formatValue from "../../utils/formatValue";
 import { Container, Image } from "./styles";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const MoreSaved = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1500 });
+  }, []);
   return (
     <Container>
       <h2>
@@ -10,7 +16,7 @@ const MoreSaved = () => {
         economizou <br />
         👍
       </h2>
-      <div>
+      <div data-aos="fade-up" data-aos-easing="linear">
         {top3.map((item, index) => (
           <section key={index}>
             <span>
