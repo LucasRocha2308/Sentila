@@ -54,8 +54,8 @@ const Login = () => {
         );
       })
       .then((_) => {
-        history.push("/expenses");
         setIsLogin(true);
+        history.push("/expenses");
       })
       .catch((_) => {
         toast.error("Login e senha não encontrado");
@@ -86,7 +86,7 @@ const Login = () => {
                   name="email"
                   label="E-mail"
                   // error={errors.username?.message}
-                  placeholder="email"
+                  placeholder="E-mail"
                 />
                 <div>
                   <Input

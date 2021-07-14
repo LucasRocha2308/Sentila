@@ -90,7 +90,7 @@ const Register = () => {
                     label="E-mail"
                     register={register}
                     // error={errors.passwordConfirm?.message}
-                    placeholder="email"
+                    placeholder="E-mail"
                   />
                   <Input
                     type="password"

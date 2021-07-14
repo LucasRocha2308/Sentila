@@ -23,6 +23,8 @@ export const isLoginContext = createContext<IsLoginProviderData>(
 export const IsLoginProvider = ({ children }: IsLoginProviderProps) => {
   const [isLogin, setIsLogin] = useState(false);
 
+  console.log("loginProvider", isLogin);
+
   return (
     <isLoginContext.Provider value={{ isLogin, setIsLogin }}>
       {children}

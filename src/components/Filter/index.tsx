@@ -15,51 +15,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import Contacts from "../Contacts";
-
-const data = [
-  {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
+// import { number } from "yup/lib/locale";
 
 interface Title {
   title: string;
@@ -71,6 +27,8 @@ const Filter = ({ title }: Title) => {
   const [valueDataMonth, setValueDataMonth] = useState("");
   const [valueId, setValueId] = useState();
   const [dataDeputies, setdataDeputies] = useState("");
+  const [chartData, setChartData] = useState([]);
+
   useEffect(() => {
     api
       .get(`deputados?nome=${valueInput}&ordem=ASC&ordenarPor=nome`)
@@ -86,9 +44,20 @@ const Filter = ({ title }: Title) => {
       .get(
         `deputados/${valueId}/despesas?ano=${parseInt(
           valueDataYear
-        )}&mes=${parseInt(valueDataMonth)}&ordem=ASC&ordenarPor=ano`
+        )}&mes=${parseInt(
+          valueDataMonth
+        )}&pagina=1&itens=100&ordem=ASC&ordenarPor=ano`
       )
-      .then((res) => console.log(res.data.dados));
+      .then((res) =>
+        setChartData(
+          res.data.dados.map((item: any, index: any) => ({
+            name: index,
+            uv: item.valorLiquido,
+            pv: 2400,
+            amt: 2400,
+          }))
+        )
+      );
 
     api
       .get(`deputados/${valueId}`)
@@ -158,7 +127,7 @@ const Filter = ({ title }: Title) => {
           <AreaChart
             width={500}
             height={200}
-            data={data}
+            data={chartData}
             margin={{
               top: 10,
               right: 30,
@@ -178,6 +147,16 @@ const Filter = ({ title }: Title) => {
             />
           </AreaChart>
         </ResponsiveContainer>
+        <p>
+          Total:{" "}
+          <span style={{ font: "2rem bold", color: "red" }}>
+            R${" "}
+            {chartData
+              .map((item: any) => item.uv)
+              .reduce((acc, current): number => acc + current, 0)
+              .toFixed(2)}{" "}
+          </span>
+        </p>
         <Contacts data={dataDeputies} />
       </div>
     </FilterContainer>
