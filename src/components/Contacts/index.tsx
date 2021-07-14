@@ -16,29 +16,29 @@ const Contacts = ({ data }: any) => {
   return (
     <div>
       <div>
-        {/* {isLogin && ( */}
-        <ContentStyled>
-          <span>Exibir contato</span>
-          <IconButtonStyled
-            onClick={handleExpandClickNav}
-            aria-expanded={expandedNav}
-            aria-label="show more"
-          >
-            <ExpandMoreIcon />
-          </IconButtonStyled>
-          <Collapse in={expandedNav} timeout="auto" unmountOnExit>
-            <nav>
-              <p>
-                <span>Telefone :</span> {data.telefone}
-              </p>
-              <p>
-                <span>E-mail : </span>
-                {data.email}
-              </p>
-            </nav>
-          </Collapse>
-        </ContentStyled>
-        {/* )} */}
+        {isLogin && (
+          <ContentStyled>
+            <span>Exibir contato</span>
+            <IconButtonStyled
+              onClick={handleExpandClickNav}
+              aria-expanded={expandedNav}
+              aria-label="show more"
+            >
+              <ExpandMoreIcon />
+            </IconButtonStyled>
+            <Collapse in={expandedNav} timeout="auto" unmountOnExit>
+              <nav>
+                <p>
+                  <span>Telefone :</span> {data.telefone}
+                </p>
+                <p>
+                  <span>E-mail : </span>
+                  {data.email}
+                </p>
+              </nav>
+            </Collapse>
+          </ContentStyled>
+        )}
       </div>
     </div>
   );

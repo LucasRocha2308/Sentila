@@ -3,18 +3,18 @@ import { ImPlay2 } from "react-icons/im";
 import { Link } from "react-router-dom";
 import FilterProposals from "../../components/FilterProposals";
 import Header from "../../components/Header";
+import ProposalsCarousel from "../../components/ProposalsCarousel";
+import ProposalsInterface from "../../model/ProposalsInterface";
 import { useProposals } from "../../provider/proposals";
 import api from "../../services/api";
-import {
-  ProposalsContainer,
-  ProposalsDeputeiContainer,
-  ProposalsCarouselContainer,
-} from "./style";
+
+import { ProposalsContainer, ProposalsDeputeiContainer } from "./style";
 
 const Proposals = () => {
-  const { idProposals, showProposals, proposalsDeputei, setIdProposals } =
-    useProposals();
-  const [proposalsCarousel, setProposalsCarousel] = useState(showProposals);
+  const { idProposals, proposalsDeputei, setIdProposals } = useProposals();
+  const [proposalsCarousel, setProposalsCarousel] = useState<
+    ProposalsInterface[]
+  >([] as ProposalsInterface[]);
 
   const [hasSearched, setHasSearched] = useState(false);
 
@@ -61,23 +61,12 @@ const Proposals = () => {
               ))}
             </>
           )}
-          {!proposalsDeputei.length && hasSearched && "Proposta sem"}
+          {!proposalsDeputei.length && hasSearched && (
+            <div> 😡 Não foram feitas propostas neste periodo </div>
+          )}
           {!hasSearched && (
             <>
-              <h2>Detalhes da Proposta</h2>
-              {proposalsCarousel.map((item, key) => (
-                <ProposalsCarouselContainer key={key}>
-                  <section>
-                    <h4>Proposta {item.codTipo}</h4>
-                    <h5>{item.siglaTipo}</h5>
-                    <h5>{item.descricaoTipo}</h5>
-                    <p>{item.statusProposicao?.despacho}</p>
-                    <p>{item.statusProposicao?.descricaoTramitacao}</p>
-                    <p>{item.statusProposicao?.descricaoSituacao}</p>
-                    <p>{item.ementa}</p>
-                  </section>
-                </ProposalsCarouselContainer>
-              ))}
+              <ProposalsCarousel proposalsCarousel={proposalsCarousel} />
             </>
           )}
         </ProposalsContainer>

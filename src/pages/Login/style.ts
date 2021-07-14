@@ -86,5 +86,4 @@ export const Container = styled.div`
 export const ContainerOut = styled.div`
   display: flex;
   width: 100vw;
-  height: 100vh;
 `;
