@@ -2,33 +2,18 @@ import { SetStateAction, Dispatch } from "react";
 import { useEffect } from "react";
 
 import { createContext, ReactNode, useContext, useState } from "react";
-import Proposals from "../../pages/Proposals";
+import ProposalsInterface from "../../model/ProposalsInterface";
 import api from "../../services/api";
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
-interface Proposals {
-  ano: number;
-  siglaTipo: string;
-  numero: number;
-  codTipo: number;
-  ementa: string;
-  id: number;
-  descricaoTipo?: string;
-  statusProposicao?: {
-    descricaoTramitacao: string;
-    descricaoSituacao: string;
-    dataHora: string;
-    despacho: string;
-  };
-}
+
 interface ProposalsProviderData {
-  proposals: Proposals[];
-  setProposals: Dispatch<SetStateAction<Proposals[]>>;
+  proposals: ProposalsInterface[];
+  setProposals: Dispatch<SetStateAction<ProposalsInterface[]>>;
   setIdProposals: Dispatch<SetStateAction<number>>;
   idProposals: number;
-  showProposals: Proposals[];
-  setProposalsDeputei: Dispatch<SetStateAction<Proposals[]>>;
-  proposalsDeputei: Proposals[];
+  setProposalsDeputei: Dispatch<SetStateAction<ProposalsInterface[]>>;
+  proposalsDeputei: ProposalsInterface[];
 }
 
 interface ProposalsProviderProps {
@@ -40,12 +25,13 @@ export const ProposalsContext = createContext<ProposalsProviderData>(
 );
 
 export const ProposalsProvider = ({ children }: ProposalsProviderProps) => {
-  const [proposals, setProposals] = useState<Proposals[]>([] as Proposals[]);
-  const [showProposals] = useState<Proposals[]>([] as Proposals[]);
-  const [idProposals, setIdProposals] = useState(Number);
-  const [proposalsDeputei, setProposalsDeputei] = useState<Proposals[]>(
-    [] as Proposals[]
+  const [proposals, setProposals] = useState<ProposalsInterface[]>(
+    [] as ProposalsInterface[]
   );
+  const [idProposals, setIdProposals] = useState(Number);
+  const [proposalsDeputei, setProposalsDeputei] = useState<
+    ProposalsInterface[]
+  >([] as ProposalsInterface[]);
 
   useEffect(() => {
     api
@@ -62,7 +48,6 @@ export const ProposalsProvider = ({ children }: ProposalsProviderProps) => {
         setProposals,
         setIdProposals,
         idProposals,
-        showProposals,
         setProposalsDeputei,
         proposalsDeputei,
       }}
