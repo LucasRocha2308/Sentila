@@ -40,6 +40,12 @@ const About = () => {
                     descomplicada e intuitiva. Os usuários poderão visualizar
                     informações como despesas e proposições de cada deputado.
                 </p>
+                <p>
+                    Os dados apresentados são consumidos da API Dados Abertos,
+                    disponibilizadas pelo Governo Federal. Não somos os
+                    reponsáveis caso as informações apresentadas não estejam de
+                    acordo com a realidade.
+                </p>
             </Container>
             <ContainerOut>
                 <ContainerAbout>
