@@ -102,7 +102,7 @@ const Login = () => {
                 </div>
                 <Button value="Entrar" />
                 <h4>
-                  Ainda não possui cadastro?{" "}
+                  Ainda não possui cadastro?
                   <Link to="/register">Cadastrar</Link>
                 </h4>
               </form>
