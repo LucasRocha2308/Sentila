@@ -58,4 +58,41 @@ export const BackgroundWrapper = styled.div`
         border-top-left-radius: 141px;
         background: linear-gradient(180deg, #34438e 0%, #252744 100%);
     }
+
+    .background5 {
+        width: 100%;
+        height: 607px;
+        position: relative;
+        background: linear-gradient(126.85deg, #252744 5.86%, #34438e 101.25%);
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    /* 
+    .background6 {
+        bottom: 0;
+        height: 100px;
+        position: absolute;
+        background: var(--white);
+        width: calc(100% + 26px);
+        transform: translateX(-26px);
+    } */
+
+    /* .background7 {
+        height: 321px;
+        width: calc(100% + 26px);
+        background: var(--light-blue);
+        border-top-left-radius: 141px;
+        border-bottom-left-radius: 141px;
+        transform: translate(-26px, -65px);
+    } */
+
+    .background8 {
+        bottom: 0;
+        height: 806px;
+        margin-top: 52px;
+        width: calc(100% + 26px);
+        transform: translateX(-26px);
+        border-top-left-radius: 141px;
+        background: var(--dark-blue);
+    }
 `;

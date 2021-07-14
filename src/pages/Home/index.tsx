@@ -32,11 +32,11 @@ const Home = () => {
                 <>
                     {" "}
                     <BackgroundWrapper>
-                        <div className="background1">
-                            <div className="background2" />
+                        <div className="background5">
+                            <div className="background6" />
                         </div>
-                        <div className="background3" />
-                        <div className="background4" />
+                        <div className="background7" />
+                        <div className="background8" />
                     </BackgroundWrapper>
                     <SectionHero />
                     <div className="flex">
