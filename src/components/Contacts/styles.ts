@@ -7,7 +7,7 @@ export const ContentStyled = styled.div`
   }
   p:hover {
     opacity: 0.8;
-    color: lime;
+    color: var(--dark-blue);
     font-weight: bold;
   }
 
@@ -37,5 +37,17 @@ export const ButtonEmailStyled = styled.a`
   margin-top: 1rem;
   :hover {
     opacity: 0.8;
+  }
+`;
+
+export const MessageStyled = styled.div`
+  h4 {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    a {
+      color: var(--light-blue);
+    }
   }
 `;

@@ -55,8 +55,8 @@ const Login = () => {
         );
       })
       .then((_) => {
-        setIsLogin(true);
         history.push("/expenses");
+        window.location.reload();
       })
       .catch((err) => {
         console.log(err);
