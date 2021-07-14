@@ -90,10 +90,9 @@ const Filter = ({ title }: Title) => {
       )
       .then((res) => console.log(res.data.dados));
 
-    api.get(`deputados/${valueId}`).then((res) => {
-      setdataDeputies(res.data.dados.ultimoStatus.gabinete);
-      console.log(res.data.dados.ultimoStatus.gabinete);
-    });
+    api
+      .get(`deputados/${valueId}`)
+      .then((res) => setdataDeputies(res.data.dados.ultimoStatus.gabinete));
   };
 
   return (

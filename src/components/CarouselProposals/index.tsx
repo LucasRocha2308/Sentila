@@ -4,7 +4,7 @@ import { ImPlay2 } from "react-icons/im";
 import { Link } from "react-router-dom";
 
 const CarouselProposals = () => {
-  const { proposals, setIdProposals } = useProposals();
+  const { proposals, setIdProposals, setShow } = useProposals();
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -22,6 +22,10 @@ const CarouselProposals = () => {
       breakpoint: { max: 464, min: 0 },
       items: 1.8,
     },
+  };
+  const handleKnowMore = (item: number) => {
+    setIdProposals(item);
+    setShow(true);
   };
 
   return (
@@ -50,7 +54,7 @@ const CarouselProposals = () => {
                 : item.ementa}
             </p>
 
-            <Link to="/proposals" onClick={() => setIdProposals(item.id)}>
+            <Link to="/proposals" onClick={() => handleKnowMore(item.id)}>
               Saiba mais <ImPlay2 />
             </Link>
           </section>

@@ -48,13 +48,11 @@ const Register = () => {
     const user = { name, password, email };
     apiAuth
       .post("register/", user)
-      .then((response) => {
-        console.log(response);
+      .then((_) => {
         toast.info("Conta criada com sucesso");
         return history.push("/login");
       })
       .catch((_) => {
-        console.log("erro");
         toast.error(" Este usuário já está cadastrado");
       });
   };
