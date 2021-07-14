@@ -8,47 +8,48 @@ import Header from "../../components/Header";
 import useWindowDimensions from "../../provider/windowDimensions";
 
 const Home = () => {
-    const { width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
 
-    return (
-        <Container>
-            <Header />
-            {Number(width) < 768 ? (
-                <>
-                    <BackgroundWrapper>
-                        <div className="background1">
-                            <div className="background2" />
-                        </div>
-                        <div className="background3" />
-                        <div className="background4" />
-                    </BackgroundWrapper>
-                    <SectionHero />
-                    <div className="g1">
-                        <MoreSpent />
-                    </div>
-                    <MoreSaved />{" "}
-                </>
-            ) : (
-                <>
-                    {" "}
-                    <BackgroundWrapper>
-                        <div className="background5">
-                            <div className="background6" />
-                        </div>
-                        <div className="background7" />
-                        <div className="background8" />
-                    </BackgroundWrapper>
-                    <SectionHero />
-                    <div className="flex">
-                        <MoreSpent />
-                        <MoreSaved />
-                    </div>
-                </>
-            )}
-            <CarouselProposals />
-            <Footer />
-        </Container>
-    );
+  return (
+    <Container>
+      <Header />
+      {Number(width) < 768 ? (
+        <>
+          <BackgroundWrapper>
+            <div className="background1">
+              <div className="background2" />
+            </div>
+            <div className="background3" />
+            <div className="background4" />
+          </BackgroundWrapper>
+          <SectionHero />
+          <div className="g1">
+            <MoreSpent />
+          </div>
+          <MoreSaved />{" "}
+        </>
+      ) : (
+        <>
+          {" "}
+          <BackgroundWrapper>
+            <div style={{ maxWidth: "100%", overflow: "hidden" }}>
+              <div className="background5"></div>
+              <div className="background6" />
+            </div>
+            <div className="background7" />
+            <div className="background8" />
+          </BackgroundWrapper>
+          <SectionHero />
+          <div className="flex">
+            <MoreSpent />
+            <MoreSaved />
+          </div>
+        </>
+      )}
+      <CarouselProposals />
+      <Footer />
+    </Container>
+  );
 };
 
 export default Home;
