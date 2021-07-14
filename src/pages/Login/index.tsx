@@ -15,8 +15,6 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import Button from "../../components/Button";
 import apiAuth from "../../services/api-auth";
-
-import { useIsLogin } from "../../provider/isLogin";
 import Header from "../../components/Header";
 
 const Login = () => {
@@ -40,7 +38,7 @@ const Login = () => {
   }
 
   const history = useHistory();
-  const { setIsLogin } = useIsLogin();
+
   const onSubmitFunction = ({ email, password }: Auth) => {
     const user = { email, password };
     apiAuth
