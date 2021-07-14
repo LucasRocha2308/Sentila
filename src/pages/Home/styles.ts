@@ -9,6 +9,13 @@ export const Container = styled.div`
     width: max-content;
     margin: 0 auto;
   }
+  @media (min-width: 768px) {
+    .flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 `;
 
 export const BackgroundWrapper = styled.div`
@@ -49,6 +56,43 @@ export const BackgroundWrapper = styled.div`
     width: calc(100% + 26px);
     transform: translateX(-26px);
     border-top-left-radius: 141px;
+    background: linear-gradient(180deg, #34438e 0%, #252744 100%);
+  }
+
+  .background5 {
+    width: 3286.99px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 607px;
+    position: relative;
+    background: linear-gradient(126.85deg, #252744 5.86%, #34438e 101.25%);
+    border-radius: 50%;
+  }
+  /* 
+    .background6 {
+        bottom: 0;
+        height: 100px;
+        position: absolute;
+        background: var(--white);
+        width: calc(100% + 26px);
+        transform: translateX(-26px);
+    } */
+
+  /* .background7 {
+        height: 321px;
+        width: calc(100% + 26px);
+        background: var(--light-blue);
+        border-top-left-radius: 141px;
+        border-bottom-left-radius: 141px;
+        transform: translate(-26px, -65px);
+    } */
+
+  .background8 {
+    height: 500px;
+    margin-top: 15.5rem;
+    width: calc(100% + 26px);
+    transform: translateX(-26px);
+    /* border-top-left-radius: 141px; */
     background: linear-gradient(180deg, #34438e 0%, #252744 100%);
   }
 `;
