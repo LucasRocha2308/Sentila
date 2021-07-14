@@ -1,20 +1,18 @@
 import { useEffect, useState } from "react";
-import { ImPlay2 } from "react-icons/im";
-import { Link } from "react-router-dom";
 import FilterProposals from "../../components/FilterProposals";
 import Header from "../../components/Header";
-import ProposalsCarousel from "../../components/ProposalsCarousel";
+import ProposalsDeputei from "../../components/ProposalsDeputei";
+import ProposalsInfo from "../../components/ProposalsInfo";
 import ProposalsInterface from "../../model/ProposalsInterface";
 import { useProposals } from "../../provider/proposals";
 import api from "../../services/api";
-
-import { ProposalsContainer, ProposalsDeputeiContainer } from "./style";
+import { ProposalsContainer, ContainerError } from "./style";
 
 const Proposals = () => {
-  const { idProposals, proposalsDeputei, setIdProposals } = useProposals();
-  const [proposalsCarousel, setProposalsCarousel] = useState<
-    ProposalsInterface[]
-  >([] as ProposalsInterface[]);
+  const { idProposals, proposalsDeputei } = useProposals();
+  const [proposalsInfo, setProposalsInfo] = useState<ProposalsInterface[]>(
+    [] as ProposalsInterface[]
+  );
 
   const [hasSearched, setHasSearched] = useState(false);
 
@@ -23,11 +21,10 @@ const Proposals = () => {
   };
 
   useEffect(() => {
+    setProposalsInfo([]);
     api
       .get(`proposicoes/${idProposals}`)
-      .then((res) =>
-        setProposalsCarousel([...proposalsCarousel, res.data.dados])
-      );
+      .then((res) => setProposalsInfo([res.data.dados]));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [idProposals]);
 
@@ -40,35 +37,15 @@ const Proposals = () => {
           action={action}
           title={"Busque pelas propostas de um deputado"}
         />
+
         <ProposalsContainer>
-          {!!proposalsDeputei.length && (
-            <>
-              <h2>Propostas do Deputado</h2>
-              {proposalsDeputei.map((item, i) => (
-                <ProposalsDeputeiContainer key={i}>
-                  <section>
-                    <h4>Proposta {item.codTipo}</h4>
-                    <h5>{item.siglaTipo}</h5>
-                    <p>{item.ementa}</p>
-                    <Link
-                      to="/proposals"
-                      onClick={() => setIdProposals(item.id)}
-                    >
-                      Saiba mais <ImPlay2 />
-                    </Link>
-                  </section>
-                </ProposalsDeputeiContainer>
-              ))}
-            </>
-          )}
+          {hasSearched && <ProposalsDeputei />}
           {!proposalsDeputei.length && hasSearched && (
-            <div> 😡 Não foram feitas propostas neste periodo </div>
+            <ContainerError>
+              <h2>😡 Não foram feitas propostas neste periodo</h2>
+            </ContainerError>
           )}
-          {!hasSearched && (
-            <>
-              <ProposalsCarousel proposalsCarousel={proposalsCarousel} />
-            </>
-          )}
+          <ProposalsInfo proposalsInfo={proposalsInfo} />
         </ProposalsContainer>
       </div>
     </>

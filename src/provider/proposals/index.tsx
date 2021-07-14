@@ -14,6 +14,8 @@ interface ProposalsProviderData {
   idProposals: number;
   setProposalsDeputei: Dispatch<SetStateAction<ProposalsInterface[]>>;
   proposalsDeputei: ProposalsInterface[];
+  setShow: Dispatch<SetStateAction<boolean>>;
+  show: boolean;
 }
 
 interface ProposalsProviderProps {
@@ -29,6 +31,7 @@ export const ProposalsProvider = ({ children }: ProposalsProviderProps) => {
     [] as ProposalsInterface[]
   );
   const [idProposals, setIdProposals] = useState(Number);
+  const [show, setShow] = useState(false);
   const [proposalsDeputei, setProposalsDeputei] = useState<
     ProposalsInterface[]
   >([] as ProposalsInterface[]);
@@ -50,6 +53,8 @@ export const ProposalsProvider = ({ children }: ProposalsProviderProps) => {
         idProposals,
         setProposalsDeputei,
         proposalsDeputei,
+        setShow,
+        show,
       }}
     >
       {children}
