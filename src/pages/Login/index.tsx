@@ -46,7 +46,6 @@ const Login = () => {
     apiAuth
       .post("login/", user)
       .then((response) => {
-        console.log(response);
         toast.info("Bem vindo");
         localStorage.clear();
         localStorage.setItem(
@@ -58,8 +57,7 @@ const Login = () => {
         setIsLogin(true);
         history.push("/expenses");
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((_) => {
         toast.error("Login e senha não encontrado");
       });
   };
