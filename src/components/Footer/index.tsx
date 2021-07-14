@@ -210,15 +210,16 @@ const Footer = () => {
                     {Number(width) >= 768 && (
                         <div className="text">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna sed do
-                                eiusmo daliqua.
+                                <strong>Sentinela</strong> é um projeto
+                                desenvolvido por alunos da{" "}
+                                <em>Kenzie Academy Brasil</em> e tem o intuito
+                                de deixar acessível e de forma descomplicada os
+                                gastos dos deputados da Câmara Federal.
                             </p>
                         </div>
                     )}
                     <div className="footer__logo">
-                        <img src={footerLogo} alt="Sentinel" />
+                        <img src={footerLogo} alt="Sentinela" />
                     </div>
                 </div>
             </FooterStyled>

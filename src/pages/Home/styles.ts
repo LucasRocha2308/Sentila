@@ -89,7 +89,7 @@ export const BackgroundWrapper = styled.div`
 
   .background8 {
     height: 500px;
-    margin-top: 15rem;
+    margin-top: 15.5rem;
     width: calc(100% + 26px);
     transform: translateX(-26px);
     /* border-top-left-radius: 141px; */
