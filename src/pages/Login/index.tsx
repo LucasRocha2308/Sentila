@@ -54,8 +54,8 @@ const Login = () => {
         );
       })
       .then((_) => {
-        setIsLogin(true);
         history.push("/expenses");
+        window.location.reload();
       })
       .catch((_) => {
         toast.error("Login e senha não encontrado");
