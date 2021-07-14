@@ -15,6 +15,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import Contacts from "../Contacts";
+import { number } from "yup/lib/locale";
 
 const data = [
   {
@@ -71,6 +72,8 @@ const Filter = ({ title }: Title) => {
   const [valueDataMonth, setValueDataMonth] = useState("");
   const [valueId, setValueId] = useState();
   const [dataDeputies, setdataDeputies] = useState("");
+  const [chartData, setChartData] = useState([]);
+
   useEffect(() => {
     api
       .get(`deputados?nome=${valueInput}&ordem=ASC&ordenarPor=nome`)
@@ -86,9 +89,20 @@ const Filter = ({ title }: Title) => {
       .get(
         `deputados/${valueId}/despesas?ano=${parseInt(
           valueDataYear
-        )}&mes=${parseInt(valueDataMonth)}&ordem=ASC&ordenarPor=ano`
+        )}&mes=${parseInt(
+          valueDataMonth
+        )}&pagina=1&itens=100&ordem=ASC&ordenarPor=ano`
       )
-      .then((res) => console.log(res.data.dados));
+      .then((res) =>
+        setChartData(
+          res.data.dados.map((item: any, index: any) => ({
+            name: index,
+            uv: item.valorLiquido,
+            pv: 2400,
+            amt: 2400,
+          }))
+        )
+      );
 
     api.get(`deputados/${valueId}`).then((res) => {
       setdataDeputies(res.data.dados.ultimoStatus.gabinete);
@@ -159,7 +173,7 @@ const Filter = ({ title }: Title) => {
           <AreaChart
             width={500}
             height={200}
-            data={data}
+            data={chartData}
             margin={{
               top: 10,
               right: 30,
@@ -179,6 +193,16 @@ const Filter = ({ title }: Title) => {
             />
           </AreaChart>
         </ResponsiveContainer>
+        <p>
+          Total:{" "}
+          <span style={{ font: "2rem bold", color: "red" }}>
+            R${" "}
+            {chartData
+              .map((item: any) => item.uv)
+              .reduce((acc, current): number => acc + current, 0)
+              .toFixed(2)}{" "}
+          </span>
+        </p>
         <Contacts data={dataDeputies} />
       </div>
     </FilterContainer>
