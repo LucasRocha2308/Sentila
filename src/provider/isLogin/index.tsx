@@ -27,7 +27,6 @@ export const IsLoginProvider = ({ children }: IsLoginProviderProps) => {
   useEffect(() => {
     local ? setIsLogin(true) : setIsLogin(false);
   }, [local]);
-  console.log("loginProvider", isLogin);
 
   return (
     <isLoginContext.Provider value={{ isLogin, setIsLogin }}>

@@ -9,10 +9,10 @@ const ProposalsDeputei = () => {
     setIdProposals(item);
     setShow(true);
   };
-
+  console.log(proposalsDeputei);
   return (
     <>
-      <h2>Propostas do Deputado</h2>
+      <h2>Estas são as propostas mais recentes do Deputado</h2>
       {proposalsDeputei.map((item, i) => (
         <ProposalsDeputeiContainer key={i}>
           <section>
