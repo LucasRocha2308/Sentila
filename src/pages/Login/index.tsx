@@ -22,13 +22,13 @@ const Login = () => {
     email: yup.string().email("E-mail inválido").required("Campo obrigatório!"),
     password: yup
       .string()
-      .min(6, "Mínimo de 6 dígitos!")
+      .min(5, "Mínimo de 5 dígitos!")
       .required("Campo obrigatório!"),
   });
   const {
     register,
     handleSubmit,
-    // formState: { errors },
+    formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
   interface Auth {
@@ -83,7 +83,7 @@ const Login = () => {
                   register={register}
                   name="email"
                   label="E-mail"
-                  // error={errors.username?.message}
+                  error={errors.username?.message}
                   placeholder="E-mail"
                 />
                 <div>
@@ -92,7 +92,7 @@ const Login = () => {
                     name="password"
                     label="Senha"
                     register={register}
-                    // error={errors.password?.message}
+                    error={errors.password?.message}
                     placeholder="Password"
                   />
                 </div>

@@ -3,13 +3,16 @@ import styled from "styled-components";
 export const Container = styled.div`
   text-align: center;
   color: var(--white);
-  margin: 6rem 0;
+  margin: 5rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   @media (min-width: 768px) {
     margin: 6rem 0 2rem;
+  }
+  h1 {
+    text-transform: uppercase;
   }
   p {
     margin: 1rem 0;

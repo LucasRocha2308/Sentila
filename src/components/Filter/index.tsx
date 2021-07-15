@@ -15,6 +15,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import Contacts from "../Contacts";
+import formatValue from "../../utils/formatValue";
 // import { number } from "yup/lib/locale";
 
 interface Title {
@@ -150,11 +151,12 @@ const Filter = ({ title }: Title) => {
         <p>
           Total:{" "}
           <span style={{ font: "2rem bold", color: "red" }}>
-            R${" "}
-            {chartData
-              .map((item: any) => item.uv)
-              .reduce((acc, current): number => acc + current, 0)
-              .toFixed(2)}{" "}
+            {formatValue(
+              chartData
+                .map((item: any) => item.uv)
+                .reduce((acc, current): number => acc + current, 0)
+                .toFixed(2)
+            )}
           </span>
         </p>
         <Contacts data={dataDeputies} />
