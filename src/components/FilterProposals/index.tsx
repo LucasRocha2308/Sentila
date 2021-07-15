@@ -77,8 +77,11 @@ const FilterProposals = ({ title, action }: FilterProps) => {
           />
         )}
       />
-
-      <Button onClick={handleDeputeis} value="Pesquisar" />
+      {valueDataYear && valueInput ? (
+        <Button onClick={handleDeputeis} value="Pesquisar" />
+      ) : (
+        <Button disabled value="Escolha as opções para pesquisar" />
+      )}
     </FilterContainer>
   );
 };
