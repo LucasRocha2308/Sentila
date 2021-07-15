@@ -19,4 +19,11 @@ export const ButtonStyle = styled.button`
   :hover {
     opacity: 0.8;
   }
+  :disabled {
+    background: #ccc;
+    cursor: unset;
+    :hover {
+      opacity: 1;
+    }
+  }
 `;
