@@ -33,7 +33,7 @@ const Register = () => {
   const {
     register,
     handleSubmit,
-    // formState: { errors },
+    formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
   interface Auth {
@@ -80,7 +80,7 @@ const Register = () => {
                   register={register}
                   name="name"
                   label="Usuário"
-                  // error={errors.username?.message}
+                  error={errors.username?.message}
                   placeholder="Username"
                 />
                 <div>
@@ -89,7 +89,7 @@ const Register = () => {
                     name="email"
                     label="E-mail"
                     register={register}
-                    // error={errors.passwordConfirm?.message}
+                    error={errors.email?.message}
                     placeholder="E-mail"
                   />
                   <Input
@@ -97,7 +97,7 @@ const Register = () => {
                     name="password"
                     label="Senha"
                     register={register}
-                    // error={errors.password?.message}
+                    error={errors.password?.message}
                     placeholder="Password"
                   />
                   <Input
@@ -105,7 +105,7 @@ const Register = () => {
                     name="passwordConfirm"
                     label="Confirme senha"
                     register={register}
-                    // error={errors.passwordConfirm?.message}
+                    error={errors.passwordConfirm?.message}
                     placeholder="Password Confirm"
                   />
                 </div>
