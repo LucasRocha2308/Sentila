@@ -30,7 +30,7 @@ const FilterProposals = ({ title, action }: FilterProps) => {
       .get(
         `proposicoes?ano=${parseInt(
           valueDataYear
-        )}&autor=${valueInput}&itens=5&ordem=ASC&ordenarPor=id`
+        )}&autor=${valueInput}&itens=20&ordem=desc&ordenarPor=ano`
       )
       .then((res) => setProposalsDeputei(res.data.dados))
       .catch((_) => {
