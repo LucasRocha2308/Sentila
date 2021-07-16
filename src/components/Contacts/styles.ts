@@ -46,6 +46,7 @@ export const MessageStyled = styled.div`
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
+
     a {
       color: var(--light-blue);
     }

@@ -56,13 +56,14 @@ export const FooterStyled = styled.footer`
 
 export const ContentStyled = styled.div`
   margin: 1rem 0;
-  padding: 2rem;
+  padding: 0.5rem;
 
   nav > div {
     margin: 1rem 0;
   }
 
   li {
+    margin: 20px 0;
     list-style-type: none;
     cursor: pointer;
   }

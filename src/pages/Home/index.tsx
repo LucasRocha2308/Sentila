@@ -32,7 +32,13 @@ const Home = () => {
         <>
           {" "}
           <BackgroundWrapper>
-            <div style={{ maxWidth: "100%", overflow: "hidden" }}>
+            <div
+              style={{
+                maxWidth: "1400px",
+                overflow: "hidden",
+                margin: "0 auto",
+              }}
+            >
               <div className="background5"></div>
               <div className="background6" />
             </div>

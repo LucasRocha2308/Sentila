@@ -6,7 +6,7 @@ import ProposalsInfo from "../../components/ProposalsInfo";
 import ProposalsInterface from "../../model/ProposalsInterface";
 import { useProposals } from "../../provider/proposals";
 import api from "../../services/api";
-import { ProposalsContainer, ContainerError } from "./style";
+import { ProposalsContainer, ContainerError, ProposalsWrapper } from "./style";
 
 const Proposals = () => {
   const { idProposals, proposalsDeputei } = useProposals();
@@ -32,21 +32,28 @@ const Proposals = () => {
     <>
       <Header />
 
-      <div style={{ margin: "5rem 1rem 0" }}>
-        <FilterProposals
-          action={action}
-          title={"Busque pelas propostas de um deputado"}
-        />
-
-        <ProposalsContainer>
-          {hasSearched && <ProposalsDeputei />}
-          {!proposalsDeputei.length && hasSearched && (
-            <ContainerError>
-              <h2>😡 Não foram feitas propostas neste periodo</h2>
-            </ContainerError>
-          )}
-          <ProposalsInfo proposalsInfo={proposalsInfo} />
-        </ProposalsContainer>
+      <div style={{ margin: "5rem auto", maxWidth: "1180px" }}>
+        <ProposalsWrapper>
+          <div className="proposals__parent">
+            <div className="proposals__column1">
+              <FilterProposals
+                action={action}
+                title={"Busque pelas propostas de um deputado"}
+              />
+            </div>
+            <div>
+              <ProposalsContainer>
+                {hasSearched && <ProposalsDeputei />}
+                {!proposalsDeputei.length && hasSearched && (
+                  <ContainerError>
+                    <h2>😡 Não foram feitas propostas neste periodo</h2>
+                  </ContainerError>
+                )}
+                <ProposalsInfo proposalsInfo={proposalsInfo} />
+              </ProposalsContainer>
+            </div>
+          </div>
+        </ProposalsWrapper>
       </div>
     </>
   );
