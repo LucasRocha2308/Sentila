@@ -22,7 +22,7 @@ const MoreSaved = () => {
             <span>
               <Image src={item.img} alt="img deputado" />
             </span>
-            <p>{item.name}</p>
+            <p>{item.name.slice(4)}</p>
             <div style={{ height: `${(1 / item.expense) * 1000}px` }}>
               {item.id}
             </div>

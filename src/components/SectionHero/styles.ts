@@ -6,6 +6,7 @@ export const Container = styled.div`
   margin: 5rem 0;
   display: flex;
   flex-direction: column;
+  max-height: 180px;
   justify-content: center;
   align-items: center;
   @media (min-width: 768px) {
@@ -16,7 +17,6 @@ export const Container = styled.div`
   }
   p {
     margin: 1rem 0;
-    min-height: 80px;
     max-width: 35rem;
     font-size: 1rem;
   }

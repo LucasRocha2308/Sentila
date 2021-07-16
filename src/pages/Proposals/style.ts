@@ -14,3 +14,18 @@ export const ContainerError = styled.div`
   margin: 0 auto;
   text-align: center;
 `;
+
+export const ProposalsWrapper = styled.div`
+  padding: 1rem;
+
+  @media only screen and (min-width: 768px) {
+    .proposals__parent {
+      display: flex;
+      gap: 3rem;
+    }
+
+    .proposals__column1 {
+      min-width: 340px;
+    }
+  }
+`;

@@ -7,7 +7,13 @@ const Expenses = () => {
   return (
     <>
       <Header />
-      <p style={{ margin: "5rem 1rem 1rem" }}>
+      <p
+        style={{
+          margin: "5rem auto 1rem",
+          maxWidth: "1180px",
+          padding: "0 1rem",
+        }}
+      >
         <Link to="/" style={{ color: "#444548" }}>
           Home
         </Link>
