@@ -32,5 +32,5 @@ export const ProposalsCarouselContainer = styled.div`
 `;
 export const ModalStyle = styled(Modal)`
   margin-top: 60px;
-  height: min-content;
+  overflow-y: scroll;
 `;

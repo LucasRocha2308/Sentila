@@ -15,6 +15,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import Contacts from "../Contacts";
+import formatValue from "../../utils/formatValue";
 
 interface Title {
   title: string;
@@ -187,14 +188,15 @@ const Filter = ({ title }: Title) => {
             >
               Vezes que utilizou verba
             </span>
-            <p style={{ marginTop: "2rem" }}>
+            <p>
               Total:{" "}
               <span style={{ font: "2rem bold", color: "red" }}>
-                R${" "}
-                {chartData
-                  .map((item: any) => item.uv)
-                  .reduce((acc, current): number => acc + current, 0)
-                  .toFixed(2)}{" "}
+                {formatValue(
+                  chartData
+                    .map((item: any) => item.uv)
+                    .reduce((acc, current): number => acc + current, 0)
+                    .toFixed(2)
+                )}
               </span>
             </p>
             <Contacts data={dataDeputies} />

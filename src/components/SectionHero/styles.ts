@@ -12,6 +12,9 @@ export const Container = styled.div`
   @media (min-width: 768px) {
     margin: 6rem 0 2rem;
   }
+  h1 {
+    text-transform: uppercase;
+  }
   p {
     margin: 1rem 0;
     max-width: 35rem;
