@@ -13,9 +13,10 @@ export default createGlobalStyle`
             --dark-blue: #252744;
             --blue: #34438E;
             --light-blue: #4DBFF6;
+            --red: #c53030;
         }
     body{
-       
+       background: var(--white);
     }   
     body,input{
         font-family: 'DM Sans', sans-serif;
@@ -24,11 +25,7 @@ export default createGlobalStyle`
     h1,h2,h3,h4,h5,h6{
         font-family: 'Rubik', sans-serif;
     }
-    button{
-        cursor: pointer;
-        font-family: 'Kodchasan', sans-serif;
-    }
-    a{
+   a,p{
         text-decoration: none;
         font-family: 'Kodchasan', sans-serif;
     }
