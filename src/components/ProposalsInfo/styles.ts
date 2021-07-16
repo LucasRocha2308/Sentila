@@ -3,6 +3,8 @@ import { Modal } from "@material-ui/core";
 
 export const ProposalsCarouselContainer = styled.div`
   width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
   padding: 1rem 0 2rem 0;
   left: 0;
   section {
@@ -30,4 +32,5 @@ export const ProposalsCarouselContainer = styled.div`
 `;
 export const ModalStyle = styled(Modal)`
   margin-top: 60px;
+  overflow-y: scroll;
 `;

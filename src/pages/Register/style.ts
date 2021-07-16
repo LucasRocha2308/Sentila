@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import ImgBackground from "../../assets/img/img-camara-federal.svg";
 
 export const ContainerFormAll = styled.div`
@@ -57,10 +57,21 @@ export const ContainerForm = styled.div`
     margin-bottom: 8px;
   }
 `;
+const appearFromRight = keyframes`
+from{
+    opacity:0;
+    transform: translateX(10px)
+}
+to{
+    opacity:1;
+    transform: translateX(0px)
+}
 
+`;
 export const Background = styled.div`
   width: 50vw;
   height: 100vh;
+  animation: ${appearFromRight} 1s;
   background: url(${ImgBackground}) no-repeat center #2d3997;
   background-size: cover;
   @media (max-width: 768px) {

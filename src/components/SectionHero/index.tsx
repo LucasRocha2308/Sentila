@@ -1,17 +1,19 @@
 import { Container } from "./styles";
 import { ImPlay2 } from "react-icons/im";
+import { Link } from "react-router-dom";
 
 const SectionHero = () => {
   return (
     <Container>
-      <h1>APLICATIVO</h1>
+      <h1>Sentinela</h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna sed do eiusmo daliqua.
+        Uma aplicação web, onde serão dispostas informações dos deputados
+        federais de forma descomplicada e intuitiva. Você poderá visualizar
+        informações como despesas e proposições de cada deputado.
       </p>
-      <a href="/about">
+      <Link to="/about">
         Saiba mais <ImPlay2 />
-      </a>
+      </Link>
     </Container>
   );
 };

@@ -4,6 +4,7 @@ import {
   ReactNode,
   SetStateAction,
   useContext,
+  useEffect,
   useState,
 } from "react";
 
@@ -22,8 +23,10 @@ export const isLoginContext = createContext<IsLoginProviderData>(
 
 export const IsLoginProvider = ({ children }: IsLoginProviderProps) => {
   const [isLogin, setIsLogin] = useState(false);
-
-  console.log("loginProvider", isLogin);
+  const local = localStorage.getItem("@Sentinela/token");
+  useEffect(() => {
+    local ? setIsLogin(true) : setIsLogin(false);
+  }, [local]);
 
   return (
     <isLoginContext.Provider value={{ isLogin, setIsLogin }}>

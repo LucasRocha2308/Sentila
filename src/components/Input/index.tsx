@@ -4,7 +4,7 @@ import { FieldValues, UseFormRegister } from "react-hook-form";
 // import { IconType } from "react-icons";
 
 interface InputProps {
-  // error: string;
+  error: string;
   label?: string;
   register: UseFormRegister<FieldValues>;
   name: string;
@@ -12,11 +12,11 @@ interface InputProps {
   placeholder?: string;
 }
 
-function Input({ label, register, name, ...rest }: InputProps) {
+function Input({ label, register, error, name, ...rest }: InputProps) {
   return (
     <Container>
-      {/* <div>{!!error && <span> - {error}</span>}</div> */}
-      <InputContainer>
+      <div>{!!error && <span> - {error}</span>}</div>
+      <InputContainer isErrored={!!error}>
         <StyleTextField
           id="outlined-secondary"
           label={label}
